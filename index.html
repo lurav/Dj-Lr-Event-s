@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ LR Events | Organisation d'Événements d'Excellence</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">DJ LR <span>EVENTS</span></a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" class="btn-outline">Réserver</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Créez des souvenirs <br><span>Inoubliables</span></h1>
+            <p>DJ & Organisation d'événements sur mesure. Mariages, anniversaires, soirées privées. L'excellence pour vos moments précieux.</p>
+            <a href="#contact" class="btn">Demander un Devis</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Nos Services</h2>
+                <p style="color: var(--color-text-muted); margin-top: 10px;">Une expertise complète pour chaque type d'événement</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Wedding Card -->
+                <div class="service-card">
+                    <div class="card-img">
+                        <img src="assets/wedding.png" alt="Mariage">
+                    </div>
+                    <div class="card-content">
+                        <h3>Mariages</h3>
+                        <p>De la cérémonie à la piste de danse, nous orchestrons la musique et l'ambiance de votre plus beau jour.</p>
+                    </div>
+                </div>
+
+                <!-- Birthday Card -->
+                <div class="service-card">
+                    <div class="card-img">
+                        <img src="assets/birthday.png" alt="Anniversaire">
+                    </div>
+                    <div class="card-content">
+                        <h3>Anniversaires</h3>
+                        <p>Des fêtes mémorables pour tous les âges. Sonorisation, éclairage et animation garantis.</p>
+                    </div>
+                </div>
+
+                <!-- Private Party Card -->
+                <div class="service-card">
+                    <div class="card-img">
+                        <img src="assets/party.png" alt="Soirée Privée">
+                    </div>
+                    <div class="card-content">
+                        <h3>Soirées Privées</h3>
+                        <p>Cocktails, galas ou soirées dansantes. Une ambiance sur-mesure adaptée à vos convives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section Placeholder -->
+    <section id="gallery" class="section" style="background-color: var(--color-bg-alt);">
+        <div class="container text-center">
+            <h2>Galerie</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Quelques instants capturés</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem;">
+                <img src="assets/hero.png" style="border-radius: 8px; height: 200px; object-fit: cover;" alt="Event 1">
+                <img src="assets/wedding.png" style="border-radius: 8px; height: 200px; object-fit: cover;" alt="Event 2">
+                <img src="assets/birthday.png" style="border-radius: 8px; height: 200px; object-fit: cover;" alt="Event 3">
+                <img src="assets/party.png" style="border-radius: 8px; height: 200px; object-fit: cover;" alt="Event 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Contactez-nous</h2>
+                <p style="color: var(--color-text-muted);">Parlons de votre projet</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Informations</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p>06 00 00 00 00</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@djlr-events.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Zone d'intervention</h4>
+                            <p>Paris & Île-de-France</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Votre Nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Votre Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Détails de votre événement (Date, Lieu, Type...)" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 class="logo" style="margin-bottom: 1rem;">DJ LR <span>EVENTS</span></h3>
+            <p style="color: #666; font-size: 0.8rem;">&copy; 2025 DJ LR Events. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
