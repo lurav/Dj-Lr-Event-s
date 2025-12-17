@@ -273,6 +273,15 @@ nav {
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+.price-highlight {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-accent);
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 /* Services */
 .services-grid {
   display: grid;
@@ -711,7 +720,20 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
+    padding: 0 1rem;
+  }
+
+  .price-highlight {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    padding: 0 1.5rem;
   }
 
   .menu-toggle {
