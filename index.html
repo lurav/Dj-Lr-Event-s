@@ -1,27 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ LR Events | Organisation d'Événements d'Excellence</title>
+
+    <!-- SEO Meta Tags -->
+    <title>Dj Lr Event's | DJ Professionnel Mariages & Événements Hauts-de-France</title>
+    <meta name="description"
+        content="DJ professionnel pour mariages, anniversaires et soirées privées dans les Hauts-de-France. Matériel haut de gamme, prix imbattables. Devis gratuit sous 24h. ⭐ 2 ans d'expérience.">
+    <meta name="keywords"
+        content="DJ mariage, DJ anniversaire, DJ soirée privée, DJ Nord, DJ Pas-de-Calais, animation événement, location matériel DJ, éclairage LED, DJ professionnel">
+    <meta name="author" content="Dj Lr Event's - Lucas">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.djlrevents.fr/">
+    <meta property="og:title" content="Dj Lr Event's | DJ Professionnel Hauts-de-France">
+    <meta property="og:description"
+        content="Animation DJ professionnelle pour vos mariages, anniversaires et soirées privées. Matériel premium, prix imbattables. Zone: Nord, Pas-de-Calais, Aisne, Somme, Ardennes.">
+    <meta property="og:image" content="assets/wedding_final_ref.png">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.djlrevents.fr/">
+    <meta property="twitter:title" content="Dj Lr Event's | DJ Professionnel Hauts-de-France">
+    <meta property="twitter:description"
+        content="Animation DJ professionnelle pour vos mariages, anniversaires et soirées privées.">
+    <meta property="twitter:image" content="assets/wedding_final_ref.png">
+
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Dj Lr Event's",
+      "image": "assets/hero.png",
+      "description": "DJ professionnel pour mariages, anniversaires et événements privés dans les Hauts-de-France",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Hauts-de-France",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.6292,
+        "longitude": 3.0573
+      },
+      "url": "https://www.djlrevents.fr",
+      "telephone": "+33649274731",
+      "email": "dj.lr.events@icloud.com",
+      "priceRange": "€€",
+      "openingHours": "Mo-Su 00:00-23:59",
+      "areaServed": [
+        {"@type": "City", "name": "Lille"},
+        {"@type": "City", "name": "Arras"},
+        {"@type": "City", "name": "Valenciennes"},
+        {"@type": "City", "name": "Amiens"}
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "15"
+      }
+    }
+    </script>
+
+    <!-- Google Analytics (Uncomment and add your tracking ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script> -->
+
     <link rel="stylesheet" href="styles.css">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
     <!-- Navigation -->
     <header id="header">
         <div class="container">
             <nav>
-                <a href="#" class="logo">DJ LR <span>EVENTS</span></a>
+                <a href="#" class="logo">Dj Lr <span>Event's</span></a>
                 <div class="menu-toggle" id="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-links">
                     <li><a href="#hero">Accueil</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#gallery">Photos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#contact" class="btn-outline">Réserver</a></li>
                 </ul>
@@ -32,9 +107,13 @@
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
-            <h1>Créez des souvenirs <br><span>Inoubliables</span></h1>
-            <p>DJ & Organisation d'événements sur mesure. Mariages, anniversaires, soirées privées. L'excellence pour vos moments précieux.</p>
-            <a href="#contact" class="btn">Demander un Devis</a>
+            <h1>Sublimez Votre Événement <br><span>Avec Exception</span></h1>
+            <p>Plus qu'une soirée, vivez une expérience sensorielle unique. Dj Lr Event's orchestre vos moments les plus
+                précieux avec passion, expertise et une touche de magie.</p>
+            <p class="price-highlight"
+                style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-accent); font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                ★ Des Prestations d'Excellence à Prix Imbattables ★</p>
+            <a href="#contact" class="btn">Réserver Ma Date</a>
         </div>
     </section>
 
@@ -42,41 +121,456 @@
     <section id="services" class="section">
         <div class="container">
             <div class="text-center">
-                <h2>Nos Services</h2>
-                <p style="color: var(--color-text-muted); margin-top: 10px;">Une expertise complète pour chaque type d'événement</p>
+                <h2>L'Art de Recevoir</h2>
+                <p style="color: var(--color-text-muted); margin-top: 10px;">Des prestations haut de gamme pour des
+                    souvenirs éternels</p>
             </div>
 
             <div class="services-grid">
                 <!-- Wedding Card -->
                 <div class="service-card">
                     <div class="card-img">
-                        <img src="assets/wedding.png" alt="Mariage">
+                        <img src="assets/wedding_sparklers_fog.png"
+                            alt="DJ mariage professionnel avec éclairage LED et effets spéciaux - Hauts-de-France">
                     </div>
                     <div class="card-content">
-                        <h3>Mariages</h3>
-                        <p>De la cérémonie à la piste de danse, nous orchestrons la musique et l'ambiance de votre plus beau jour.</p>
+                        <h3>Mariages de Rêve</h3>
+                        <p>Une scénographie lumineuse féérique et une programmation musicale sur-mesure. Du "Oui"
+                            jusqu'au bout de la nuit, nous créons l'émotion.</p>
                     </div>
                 </div>
 
                 <!-- Birthday Card -->
                 <div class="service-card">
                     <div class="card-img">
-                        <img src="assets/birthday.png" alt="Anniversaire">
+                        <img src="assets/birthday_hall.jpg"
+                            alt="Animation DJ anniversaire avec ambiance festive et son professionnel">
                     </div>
                     <div class="card-content">
-                        <h3>Anniversaires</h3>
-                        <p>Des fêtes mémorables pour tous les âges. Sonorisation, éclairage et animation garantis.</p>
+                        <h3>Anniversaires Explosifs</h3>
+                        <p>Marquez les esprits ! Une ambiance survoltée, un son percutant et des jeux de lumière
+                            immersifs pour célébrer la vie comme il se doit.</p>
                     </div>
                 </div>
 
                 <!-- Private Party Card -->
                 <div class="service-card">
                     <div class="card-img">
-                        <img src="assets/party.png" alt="Soirée Privée">
+                        <img src="assets/party_crowd_final.jpg"
+                            alt="DJ soirée privée VIP avec éclairage professionnel et ambiance exclusive">
                     </div>
                     <div class="card-content">
-                        <h3>Soirées Privées</h3>
-                        <p>Cocktails, galas ou soirées dansantes. Une ambiance sur-mesure adaptée à vos convives.</p>
+                        <h3>Soirées Privées Exclusives</h3>
+                        <p>Cocktails, galas ou soirées VIP. Offrez à vos invités une atmosphère chic, glamour et
+                            inoubliable avec une prestation DJ d'excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-wrapper" style="display: flex; justify-content: center; text-align: center;">
+                <div class="about-content" style="max-width: 800px;">
+                    <h2>L'Âme de Dj Lr Event's</h2>
+                    <p
+                        style="color: var(--color-accent); font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Lucas - 20 Ans - La Passion à l'État Pur</p>
+                    <p style="margin-bottom: 1.5rem; color: #e2e8f0; font-size: 1.1rem; line-height: 1.8;">
+                        Je m'appelle <strong>Lucas</strong>. À 20 ans, je consacre mon énergie et ma créativité à l'art
+                        de l'événementiel. Depuis maintenant <strong>2 ans</strong>, je perfectionne mon savoir-faire
+                        pour offrir bien plus qu'une simple prestation musicale : une véritable expérience.
+                    </p>
+                    <p style="margin-bottom: 2rem; color: var(--color-text-muted);">
+                        Mon jeune âge est ma plus grande force : je suis connecté aux tendances actuelles tout en
+                        respectant les codes de l'élégance intemporelle. Ma rigueur et mon dynamisme sont au service de
+                        votre événement, pour que chaque instant soit parfait.
+                    </p>
+                    <div class="stats" style="display: flex; gap: 2rem; justify-content: center;">
+                        <div>
+                            <span
+                                style="display: block; font-size: 2rem; font-weight: 700; color: var(--color-accent);">2
+                                Ans</span>
+                            <span style="font-size: 0.9rem; color: var(--color-text-muted);">D'Expérience</span>
+                        </div>
+                        <div>
+                            <span
+                                style="display: block; font-size: 2rem; font-weight: 700; color: var(--color-accent);">100%</span>
+                            <span style="font-size: 0.9rem; color: var(--color-text-muted);">Passion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section id="equipment" class="section" style="background-color: var(--color-bg-alt);">
+        <div class="container">
+            <div class="text-center">
+                <h2>Mon Matériel Professionnel</h2>
+                <p style="color: var(--color-text-muted); margin-top: 10px;">Un équipement de qualité pour des
+                    événements réussis</p>
+            </div>
+
+            <div class="equipment-grid" style="margin-top: 3rem;">
+                <div class="equipment-item">
+                    <div class="equipment-image">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                    <h3>Console DJ</h3>
+                    <p>Console pour un mixage fluide et des transitions parfaites</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-image">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <h3>Système Son</h3>
+                    <p>Enceintes puissantes pour une qualité sonore optimale, adaptées à tous les espaces</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-image">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Éclairages LED</h3>
+                    <p>Jeux de lumière modernes pour créer une ambiance unique et festive</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-image">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Effets Spéciaux</h3>
+                    <p>Machine à fumée et effets lumineux pour sublimer vos moments forts</p>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 3rem; padding: 2rem; background: var(--glass-bg); border: var(--glass-border); border-radius: 12px; text-align: center;">
+                <p style="color: var(--color-text-muted); line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                    <i class="fas fa-info-circle" style="color: var(--color-accent); margin-right: 0.5rem;"></i>
+                    <strong style="color: var(--color-accent);">Matériel récent et entretenu</strong> - Tout mon
+                    équipement est régulièrement vérifié et mis à jour pour garantir une prestation sans faille.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section id="stats" class="section"
+        style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(28, 25, 23, 0.9) 100%); padding: 4rem 0;">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Événements Réalisés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">% Clients Satisfaits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label">Heures de Musique</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number" data-target="2">0</div>
+                    <div class="stat-label">Ans d'Expérience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section id="trust-badges" class="section" style="background-color: var(--color-bg-alt); padding: 3rem 0;">
+        <div class="container">
+            <div class="badges-grid">
+                <div class="badge-item">
+                    <div class="badge-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h4>Contrat Officiel</h4>
+                    <p>Chaque prestation sécurisée par un contrat en bonne et due forme</p>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Paiement Sécurisé</h4>
+                    <p>Virement, chèque ou espèces - Acompte 30%</p>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>2 Ans d'Expérience</h4>
+                    <p>Passion et professionnalisme au service de vos événements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantees & Security Section -->
+    <section id="guarantees" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Garanties & Sécurité</h2>
+                <p style="color: var(--color-text-muted); margin-top: 10px;">Votre tranquillité d'esprit est notre
+                    priorité</p>
+            </div>
+
+            <div class="guarantees-grid" style="margin-top: 3rem;">
+                <!-- Insurance Badge -->
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Assurance Professionnelle</h3>
+                    <p>Responsabilité Civile Professionnelle à jour. Votre événement est couvert en cas d'incident
+                        matériel.</p>
+                    <div class="guarantee-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>RC Pro Active</span>
+                    </div>
+                </div>
+
+                <!-- Equipment Insurance -->
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Matériel Assuré</h3>
+                    <p>Équipement professionnel récent, entretenu et assuré. Matériel de secours disponible pour
+                        garantir la continuité.</p>
+                    <div class="guarantee-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Backup Garanti</span>
+                    </div>
+                </div>
+
+                <!-- Satisfaction Guarantee -->
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Garantie Satisfaction</h3>
+                    <p>100% de clients satisfaits. Si vous n'êtes pas pleinement satisfait, nous trouvons une solution
+                        ensemble.</p>
+                    <div class="guarantee-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>100% Satisfait</span>
+                    </div>
+                </div>
+
+                <!-- Legal Contract -->
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3>Contrat en Bonne Forme</h3>
+                    <p>Chaque prestation est encadrée par un contrat détaillé précisant services, tarifs et conditions.
+                    </p>
+                    <div class="guarantee-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Légal & Sécurisé</span>
+                    </div>
+                </div>
+
+                <!-- Punctuality -->
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Ponctualité Garantie</h3>
+                    <p>Installation 2h avant le début de l'événement. Nous sommes toujours à l'heure, votre timing est
+                        respecté.</p>
+                    <div class="guarantee-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Toujours à l'Heure</span>
+                    </div>
+                </div>
+
+                <!-- Professional Support -->
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Support Dédié</h3>
+                    <p>Disponible 7j/7 avant et pendant votre événement. Une question ? Une urgence ? Nous sommes là.
+                    </p>
+                    <div class="guarantee-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Assistance 7j/7</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Statement -->
+            <div
+                style="margin-top: 3rem; padding: 2.5rem; background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(28, 25, 23, 0.5) 100%); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 16px; text-align: center;">
+                <i class="fas fa-award" style="font-size: 3rem; color: var(--color-accent); margin-bottom: 1rem;"></i>
+                <h3
+                    style="color: var(--color-accent); font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 1rem;">
+                    Notre Engagement Qualité</h3>
+                <p style="color: #e2e8f0; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                    Chez <strong>Dj Lr Event's</strong>, nous ne faisons aucun compromis sur la qualité et la sécurité.
+                    Chaque événement est traité avec le même niveau d'excellence et de professionnalisme.
+                    Votre confiance est notre plus belle récompense.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me Section -->
+    <section id="why-choose" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Pourquoi Me Choisir ?</h2>
+                <p style="color: var(--color-text-muted); margin-top: 10px;">Ce qui fait la différence</p>
+            </div>
+
+            <div class="why-grid" style="margin-top: 3rem;">
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h3>Prix Imbattables</h3>
+                    <p>Des tarifs compétitifs sans compromis sur la qualité. Devis gratuit et transparent sous 24h.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Matériel Récent</h3>
+                    <p>Équipement professionnel régulièrement renouvelé pour des prestations au top.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Disponibilité 7j/7</h3>
+                    <p>Flexible et réactif, je m'adapte à vos contraintes et disponibilités.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion & Écoute</h3>
+                    <p>À votre écoute pour créer l'ambiance qui vous ressemble et faire de votre événement un moment
+                        unique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section" style="background-color: var(--color-bg-alt);">
+        <div class="container">
+            <div class="text-center">
+                <h2>Votre Événement en Toute Sérénité</h2>
+                <p style="color: var(--color-text-muted); margin-top: 10px;">Une organisation carrée pour un Jour J sans
+                    fausse note</p>
+            </div>
+
+            <div class="process-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 4rem;">
+                <!-- Step 1 -->
+                <div class="process-step" style="text-align: center; position: relative;">
+                    <div class="step-icon"
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-accent), #b5952f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">1. Devis & Contrat</h3>
+                    <p style="color: var(--color-text-muted);">On discute de vos envies. Je vous propose une formule
+                        claire et sécurisée par un <strong>Contrat d'Engagement</strong> officiel.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step" style="text-align: center; position: relative;">
+                    <div class="step-icon"
+                        style="width: 80px; height: 80px; background: rgba(255,255,255,0.05); border: 1px solid var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: var(--color-accent);">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">2. Préparation Minutieuse</h3>
+                    <p style="color: var(--color-text-muted);">Playlist, timing, surprises... On cale tout ensemble lors
+                        d'un rendez-vous de préparation pour ne rien laisser au hasard.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step" style="text-align: center; position: relative;">
+                    <div class="step-icon"
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-accent), #b5952f); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);">
+                        <i class="fas fa-champagne-glasses"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">3. Le Grand Jour</h3>
+                    <p style="color: var(--color-text-muted);">Je m'installe, je gère le son et la lumière. Vous n'avez
+                        plus qu'à profiter de vos invités et de la fête !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Section -->
+    <section id="service-area" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Zone d'Intervention</h2>
+                <p style="color: var(--color-text-muted); margin-top: 10px;">Nous intervenons dans toute la région
+                    Hauts-de-France</p>
+            </div>
+
+            <div class="service-area-content" style="margin-top: 3rem;">
+                <div class="area-map">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Hauts-de-France</h3>
+                        <p>Nord • Pas-de-Calais • Aisne • Somme • Ardennes</p>
+                    </div>
+                </div>
+                <div class="area-details">
+                    <h3 style="color: var(--color-accent); margin-bottom: 1.5rem;">Départements Couverts</h3>
+                    <div class="department-list">
+                        <div class="department-item">
+                            <i class="fas fa-map-pin"></i>
+                            <span><strong>Nord (59)</strong> - Lille, Roubaix, Tourcoing, Valenciennes...</span>
+                        </div>
+                        <div class="department-item">
+                            <i class="fas fa-map-pin"></i>
+                            <span><strong>Pas-de-Calais (62)</strong> - Arras, Calais, Boulogne-sur-Mer, Lens...</span>
+                        </div>
+                        <div class="department-item">
+                            <i class="fas fa-map-pin"></i>
+                            <span><strong>Aisne (02)</strong> - Laon, Saint-Quentin, Soissons...</span>
+                        </div>
+                        <div class="department-item">
+                            <i class="fas fa-map-pin"></i>
+                            <span><strong>Somme (80)</strong> - Amiens, Abbeville, Péronne...</span>
+                        </div>
+                        <div class="department-item">
+                            <i class="fas fa-map-pin"></i>
+                            <span><strong>Ardennes (08)</strong> - Charleville-Mézières, Sedan...</span>
+                        </div>
+                    </div>
+                    <div
+                        style="margin-top: 2rem; padding: 1.5rem; background: var(--glass-bg); border: var(--glass-border); border-radius: 12px;">
+                        <p style="color: var(--color-text-muted); line-height: 1.8; margin: 0;">
+                            <i class="fas fa-info-circle" style="color: var(--color-accent); margin-right: 0.5rem;"></i>
+                            <strong style="color: var(--color-accent);">Événements hors zone ?</strong> Nous étudions
+                            toutes les demandes ! Des frais de déplacement peuvent s'appliquer selon la distance.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -86,14 +580,193 @@
     <!-- Gallery Section Placeholder -->
     <section id="gallery" class="section" style="background-color: var(--color-bg-alt);">
         <div class="container text-center">
-            <h2>Galerie</h2>
-            <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Quelques instants capturés</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem;">
-                <img src="assets/hero.png" style="border-radius: 8px; height: 200px; object-fit: cover;" alt="Event 1">
-                <img src="assets/wedding.png" style="border-radius: 8px; height: 200px; object-fit: cover;" alt="Event 2">
-                <img src="assets/birthday.png" style="border-radius: 8px; height: 200px; object-fit: cover;" alt="Event 3">
-                <img src="assets/party.png" style="border-radius: 8px; height: 200px; object-fit: cover;" alt="Event 4">
+            <h2>Galerie Photos</h2>
+            <p style="color: var(--color-text-muted); margin-top: 10px;">Quelques moments capturés lors de mes
+                prestations</p>
+
+            <div class="gallery-grid" style="margin-top: 3rem;">
+                <div class="gallery-item">
+                    <img src="assets/gallery1.jpg" alt="Événement DJ 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/gallery2.jpg" alt="Événement DJ 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/gallery3.jpg" alt="Événement DJ 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Ils nous ont fait confiance</h2>
+                <p style="color: var(--color-text-muted); margin-top: 10px;">Vos mots sont notre plus belle récompense
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Une prestation exceptionnelle ! Lucas a su capter l'ambiance dès la
+                        première seconde. Nos invités nous en parlent encore. Merci pour tout !"</p>
+                    <h4>Sophie & Thomas</h4>
+                    <span class="event-type">Mariage - Juin 2025</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Professionnalisme, écoute et une ambiance de folie. Je recommande les yeux fermés
+                        pour n'importe quel événement. Le matériel est top !"</p>
+                    <h4>Julien M.</h4>
+                    <span class="event-type">Anniversaire 30 ans</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Un grand merci pour cette soirée d'entreprise. Tout était parfait, de la lumière
+                        au son. Une vraie classe !"</p>
+                    <h4>Amélie Dupont</h4>
+                    <span class="event-type">Soirée Privée</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section" style="background-color: var(--color-bg-alt);">
+        <div class="container">
+            <div class="text-center">
+                <h2>Questions Fréquentes</h2>
+                <p style="color: var(--color-text-muted); margin-top: 10px;">Tout ce que vous devez savoir avant de
+                    réserver</p>
+            </div>
+
+            <div class="faq-container" style="max-width: 900px; margin: 3rem auto 0;">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quels sont vos tarifs ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nos tarifs varient selon le type d'événement, la durée et les options choisies. Nous
+                            proposons des <strong>formules sur-mesure</strong> adaptées à tous les budgets, avec un
+                            excellent rapport qualité-prix. Contactez-nous pour un <strong>devis gratuit et
+                                personnalisé</strong> sous 24h. Notre promesse : des prestations d'excellence à prix
+                            imbattables !</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quelle est votre zone d'intervention ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous intervenons principalement dans le <strong>Nord, Pas-de-Calais, Aisne, Somme et
+                                Ardennes</strong>. Pour les événements en dehors de cette zone, des frais de déplacement
+                            peuvent s'appliquer. N'hésitez pas à nous contacter pour discuter de votre projet, nous
+                            étudions toutes les demandes !</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quel matériel fournissez-vous ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous fournissons un <strong>équipement professionnel complet</strong> :</p>
+                        <ul style="margin-top: 1rem; color: var(--color-text-muted); line-height: 1.8;">
+                            <li>✓ Console DJ</li>
+                            <li>✓ Système son adapté à la taille de votre salle</li>
+                            <li>✓ Éclairages LED et jeux de lumière immersifs</li>
+                            <li>✓ Effets spéciaux (fumée, lyres, strobes selon formule)</li>
+                            <li>✓ Micro sans fil pour animations et discours</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Combien de temps à l'avance dois-je réserver ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pour garantir votre date, nous recommandons de réserver <strong>au moins 3 à 6 mois à
+                                l'avance</strong>, surtout pour les mariages et événements en haute saison (mai à
+                            septembre). Cependant, nous restons flexibles et pouvons parfois accepter des réservations
+                            de dernière minute selon nos disponibilités.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment se déroule la préparation de l'événement ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Après signature du contrat, nous organisons un <strong>rendez-vous de préparation</strong>
+                            (en personne ou visio) où nous discutons :</p>
+                        <ul style="margin-top: 1rem; color: var(--color-text-muted); line-height: 1.8;">
+                            <li>✓ Vos goûts musicaux et playlist personnalisée</li>
+                            <li>✓ Le déroulé de la soirée et moments clés</li>
+                            <li>✓ Les animations et surprises éventuelles</li>
+                            <li>✓ Les contraintes techniques du lieu</li>
+                        </ul>
+                        <p style="margin-top: 1rem;">Nous restons en contact jusqu'au jour J pour que tout soit parfait
+                            !</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Proposez-vous un contrat officiel ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolument ! Chaque prestation est sécurisée par un <strong>Contrat d'Engagement
+                                officiel</strong> qui détaille les services, tarifs, horaires et conditions.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quelles sont vos modalités de paiement ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Un <strong>acompte de 30%</strong> est demandé à la signature du contrat pour réserver votre
+                            date. Le solde est à régler <strong>le jour de l'événement</strong>. Nous acceptons les
+                            paiements par virement bancaire, chèque ou espèces.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Que se passe-t-il en cas d'annulation ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Notre politique d'annulation est détaillée dans le contrat. En résumé :</p>
+                        <ul style="margin-top: 1rem; color: var(--color-text-muted); line-height: 1.8;">
+                            <li>✓ Plus de 3 mois avant : remboursement de l'acompte à 100%</li>
+                            <li>✓ Entre 1 et 3 mois : remboursement à 50%</li>
+                            <li>✓ Moins d'1 mois : acompte non remboursable</li>
+                        </ul>
+                        <p style="margin-top: 1rem;">Nous comprenons que les imprévus arrivent et restons toujours à
+                            l'écoute pour trouver des solutions.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -102,8 +775,9 @@
     <section id="contact" class="section">
         <div class="container">
             <div class="text-center">
-                <h2>Contactez-nous</h2>
-                <p style="color: var(--color-text-muted);">Parlons de votre projet</p>
+                <h2>Prêt à Vivre l'Inoubliable ?</h2>
+                <p style="color: var(--color-text-muted);">Votre événement mérite ce qu'il y a de mieux. Discutons-en.
+                </p>
             </div>
 
             <div class="contact-wrapper">
@@ -113,51 +787,129 @@
                         <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div>
                             <h4>Téléphone</h4>
-                            <p>06 00 00 00 00</p>
+                            <p>06 49 27 47 31</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div>
                             <h4>Email</h4>
-                            <p>contact@djlr-events.com</p>
+                            <p>dj.lr.events@icloud.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <h4>Zone d'intervention</h4>
-                            <p>Paris & Île-de-France</p>
+                            <p>Nord, Pas-de-Calais, Aisne, Somme, Ardennes</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-form">
-                    <form>
+                    <form id="contact-form">
                         <div class="form-group">
-                            <input type="text" placeholder="Votre Nom" required>
+                            <input type="text" id="user_name" placeholder="Votre Nom" required aria-label="Nom complet">
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Votre Email" required>
+                            <input type="email" id="user_email" placeholder="Votre Email" required
+                                aria-label="Adresse email">
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Détails de votre événement (Date, Lieu, Type...)" required></textarea>
+                            <input type="tel" id="user_phone" placeholder="Votre Téléphone"
+                                aria-label="Numéro de téléphone">
                         </div>
-                        <button type="submit" class="btn">Envoyer</button>
+
+                        <div class="form-group">
+                            <select id="event_type" required aria-label="Type d'événement">
+                                <option value="">Type d'événement *</option>
+                                <option value="mariage">💍 Mariage</option>
+                                <option value="anniversaire">🎂 Anniversaire</option>
+                                <option value="soiree-privee">🥂 Soirée Privée</option>
+                                <option value="entreprise">💼 Événement d'Entreprise</option>
+                                <option value="autre">🎉 Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="date" id="event_date" required aria-label="Date de l'événement">
+                                <label for="event_date" class="floating-label">Date de l'événement *</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" id="guest_count" placeholder="Nombre d'invités" min="1"
+                                    aria-label="Nombre d'invités">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="event_location" placeholder="Lieu de l'événement (Ville)" required
+                                aria-label="Lieu de l'événement">
+                        </div>
+
+                        <div class="form-group">
+                            <select id="budget_range" aria-label="Budget estimé">
+                                <option value="">Budget estimé (optionnel)</option>
+                                <option value="500-800">500€ - 800€</option>
+                                <option value="800-1200">800€ - 1200€</option>
+                                <option value="1200-1800">1200€ - 1800€</option>
+                                <option value="1800+">1800€ et plus</option>
+                                <option value="non-defini">Non défini</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="message"
+                                placeholder="Détails supplémentaires (ambiance souhaitée, demandes spéciales...)"
+                                rows="4" aria-label="Message"></textarea>
+                        </div>
+
+                        <div class="form-notice">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Réponse garantie sous 24h • Devis gratuit et sans engagement</span>
+                        </div>
+
+                        <button type="submit" class="btn">Obtenir Mon Devis Gratuit</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/33649274731?text=Bonjour%20Dj%20Lr%20Event's%2C%20je%20souhaite%20obtenir%20des%20informations%20pour%20mon%20événement."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactez-nous sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Footer -->
     <footer>
         <div class="container">
-            <h3 class="logo" style="margin-bottom: 1rem;">DJ LR <span>EVENTS</span></h3>
-            <p style="color: #666; font-size: 0.8rem;">&copy; 2025 DJ LR Events. Tous droits réservés.</p>
+            <h3 class="logo" style="margin-bottom: 1rem;">Dj Lr <span>Event's</span></h3>
+
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61570880282731" target="_blank"
+                    rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.pagesjaunes.fr/pros/63794669" target="_blank" rel="noopener noreferrer"
+                    aria-label="Pages Jaunes">
+                    <i class="fas fa-book"></i>
+                </a>
+            </div>
+
+            <p style="color: #666; font-size: 0.8rem; margin-top: 1.5rem;">&copy; 2025 Dj Lr Event's. Tous droits
+                réservés.</p>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="script.js"></script>
 </body>
+
 </html>
