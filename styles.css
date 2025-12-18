@@ -1936,41 +1936,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
-/* Availability Section Styles */
-.availability-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.availability-card {
-  transition: transform 0.5s ease;
-}
-
-.availability-card:hover {
-  transform: translateY(-5px);
-}
-
-@media (max-width: 768px) {
-  .availability-card h2 {
-    font-size: 2rem !important;
-  }
-
-  .availability-action {
-    flex-direction: column;
-  }
-
-  .availability-action .btn-outline {
-    width: 100%;
-    text-align: center;
-  }
-}
 
 /* Social Guestbook Styles */
 .social-guestbook {
@@ -2151,5 +2116,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .social-guestbook {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .section {
+    padding: 4rem 0 !important;
   }
 }
