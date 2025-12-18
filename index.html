@@ -389,6 +389,34 @@
                         <span>Assistance 7j/7</span>
                     </div>
                 </div>
+
+                <!-- Secured Installation -->
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Installation Sécurisée</h3>
+                    <p>Câblage soigné, matériel fixé et respect des normes de sécurité pour la protection de vos invités
+                        et du lieu.</p>
+                    <div class="guarantee-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sécurité Certifiée</span>
+                    </div>
+                </div>
+
+                <!-- Transparency & No Hidden Fees -->
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>Zéro Mauvaise Surprise</h3>
+                    <p>Une transparence totale dès le départ. Tous nos tarifs sont nets, sans frais cachés ni de
+                        mauvaises surprises au dernier moment.</p>
+                    <div class="guarantee-badge">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Transparence Totale</span>
+                    </div>
+                </div>
             </div>
 
             <!-- Trust Statement -->
@@ -507,10 +535,43 @@
 
             <div class="service-area-content" style="margin-top: 3rem;">
                 <div class="area-map">
-                    <div class="map-placeholder">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <h3>Hauts-de-France</h3>
-                        <p>Nord • Pas-de-Calais • Aisne • Somme • Ardennes</p>
+                    <svg class="map-svg" viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Stylized Region Shape (Simplified Hauts-de-France) -->
+                        <path class="map-region"
+                            d="M150,50 L250,30 L350,80 L380,180 L320,280 L200,320 L80,250 L20,150 L50,80 Z" />
+
+                        <!-- Pulse Effects -->
+                        <circle class="map-pulse" cx="180" cy="100" r="5" /> <!-- Lille -->
+                        <circle class="map-pulse" cx="150" cy="180" r="5" /> <!-- Arras -->
+                        <circle class="map-pulse" cx="280" cy="150" r="5" /> <!-- Valenciennes -->
+                        <circle class="map-pulse" cx="120" cy="250" r="5" /> <!-- Amiens -->
+
+                        <!-- Interactive Pins -->
+                        <g class="pin-group">
+                            <circle class="map-pin" cx="180" cy="100" r="6" />
+                            <text x="190" y="105" fill="#fff" font-size="10" font-weight="600">Lille</text>
+                        </g>
+                        <g class="pin-group">
+                            <circle class="map-pin" cx="150" cy="180" r="6" />
+                            <text x="110" y="185" fill="#fff" font-size="10" font-weight="600">Arras</text>
+                        </g>
+                        <g class="pin-group">
+                            <circle class="map-pin" cx="280" cy="150" r="6" />
+                            <text x="290" y="155" fill="#fff" font-size="10" font-weight="600">Valenciennes</text>
+                        </g>
+                        <g class="pin-group">
+                            <circle class="map-pin" cx="120" cy="250" r="6" />
+                            <text x="75" y="255" fill="#fff" font-size="10" font-weight="600">Amiens</text>
+                        </g>
+                        <g class="pin-group">
+                            <circle class="map-pin" cx="80" cy="120" r="6" />
+                            <text x="20" y="125" fill="#fff" font-size="10" font-weight="600">Calais</text>
+                        </g>
+                    </svg>
+                    <div class="map-overlay"
+                        style="position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.7); padding: 10px 15px; border-radius: 8px; border: 1px solid var(--color-accent); font-size: 0.8rem;">
+                        <i class="fas fa-info-circle" style="color: var(--color-accent); margin-right: 5px;"></i>
+                        Plus de <strong>15 événements</strong> garantis dans la région
                     </div>
                 </div>
                 <div class="area-details">
@@ -581,27 +642,103 @@
                 </p>
             </div>
 
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="quote">"Une prestation exceptionnelle ! Lucas a su capter l'ambiance dès la
-                        première seconde. Nos invités nous en parlent encore. Merci pour tout !"</p>
-                    <h4>Sophie & Thomas</h4>
-                    <span class="event-type">Mariage - Juin 2025</span>
+            <div class="testimonials-grid social-guestbook">
+                <!-- WhatsApp Style -->
+                <div class="social-card whatsapp">
+                    <div class="social-header">
+                        <div class="social-user">
+                            <div class="user-avatar" style="background: #e0f2f1;">ST</div>
+                            <div>
+                                <h4>Sophie & Thomas</h4>
+                                <span class="status">En ligne • Mariage</span>
+                            </div>
+                        </div>
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="chat-bubble">
+                        <p>"Une prestation exceptionnelle ! Lucas a su capter l'ambiance dès la première seconde. Nos
+                            invités nous en parlent encore. Merci pour tout ! 🙏✨"</p>
+                        <div class="chat-meta">
+                            <span>02:14</span>
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="quote">"Professionnalisme, écoute et une ambiance de folie. Je recommande les yeux fermés
-                        pour n'importe quel événement. Le matériel est top !"</p>
-                    <h4>Julien M.</h4>
-                    <span class="event-type">Anniversaire 30 ans</span>
+
+                <!-- Instagram Style -->
+                <div class="social-card instagram">
+                    <div class="social-header">
+                        <div class="social-user">
+                            <div class="user-avatar"
+                                style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);">
+                                JM</div>
+                            <div>
+                                <h4>Julien M.</h4>
+                                <span class="status">@julien_events • Anniversaire</span>
+                            </div>
+                        </div>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="chat-bubble">
+                        <p>"Professionnalisme, écoute et une ambiance de folie. Je recommande les yeux fermés ! Le
+                            matériel est vraiment top, la qualité du son est bluffante. 🔥🎧"</p>
+                        <div class="chat-meta">
+                            <span>Envoyé il y a 2h</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="quote">"Un grand merci pour cette soirée d'entreprise. Tout était parfait, de la lumière
-                        au son. Une vraie classe !"</p>
-                    <h4>Amélie Dupont</h4>
-                    <span class="event-type">Soirée Privée</span>
+
+                <!-- Messenger Style -->
+                <div class="social-card messenger">
+                    <div class="social-header">
+                        <div class="social-user">
+                            <div class="user-avatar" style="background: #0084ff;">AD</div>
+                            <div>
+                                <h4>Amélie Dupont</h4>
+                                <span class="status">Via Facebook • Soirée Privée</span>
+                            </div>
+                        </div>
+                        <i class="fab fa-facebook-messenger"></i>
+                    </div>
+                    <div class="chat-bubble">
+                        <p>"Un grand merci pour cette soirée d'entreprise. Tout était parfait, de la lumière au son. Une
+                            vraie classe ! On vous rappellera pour Noël sans hésiter. ⭐"</p>
+                        <div class="chat-meta">
+                            <span>Vu à 10:45</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Availability Section -->
+    <section id="availability" class="section"
+        style="background: linear-gradient(135deg, var(--color-bg) 0%, #1c1917 100%); position: relative; overflow: hidden;">
+        <div class="availability-glow"></div>
+        <div class="container">
+            <div class="availability-card"
+                style="background: var(--glass-bg); border: 2px solid var(--color-accent); border-radius: 24px; padding: 4rem 2rem; text-align: center; position: relative; z-index: 2; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+                <div class="availability-badge"
+                    style="background: var(--color-accent); color: #000; padding: 0.5rem 1.5rem; border-radius: 50px; display: inline-block; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">
+                    Saison 2026 Ouverte
+                </div>
+                <h2 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.1;">Vérifiez Ma Disponibilité
+                    <br><span style="color: #fff;">Pour Votre Événement</span>
+                </h2>
+                <p style="font-size: 1.2rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto 2.5rem;">
+                    Les samedis de mai à septembre se remplissent très rapidement. Ne tardez pas à réserver votre date
+                    pour une prestation d'exception.</p>
+
+                <div class="availability-action"
+                    style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#contact" class="btn" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Vérifier mon
+                        Samedi</a>
+                    <a href="https://wa.me/33649274731" class="btn-outline"
+                        style="border: 1px solid var(--color-accent); padding: 1.2rem 3rem; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-whatsapp" style="margin-right: 10px; font-size: 1.4rem;"></i> Réponse Rapide
+                        WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
