@@ -1429,8 +1429,36 @@ footer {
   }
 
   .equipment-item {
-    flex: 0 0 280px;
+    flex: 0 0 260px;
     scroll-snap-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  /* Indicateur de scroll pour le slider */
+  .equipment-grid::after {
+    content: '← Glissez pour voir plus →';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    opacity: 0.6;
+    animation: pulseAlpha 2s infinite;
+  }
+}
+
+@keyframes pulseAlpha {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
   }
 }
 
