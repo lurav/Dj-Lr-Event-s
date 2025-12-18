@@ -1464,12 +1464,6 @@ footer {
   transform: rotateY(-180deg);
 }
 
-transition: color 0.3s ease;
-}
-
-.equipment-item:hover .equipment-image i {
-  color: #000;
-}
 
 .equipment-item h3 {
   font-size: 1.3rem;
