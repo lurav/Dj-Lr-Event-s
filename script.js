@@ -223,3 +223,66 @@ const statsObserver = new IntersectionObserver((entries) => {
 if (statsSection) {
     statsObserver.observe(statsSection);
 }
+
+// JavaScript Prestige
+window.addEventListener('load', () => {
+    const loader = document.getElementById('prestige-loader');
+    setTimeout(() => {
+        if (loader) {
+            loader.classList.add('fade-out');
+            document.body.style.overflow = 'auto'; // Réactive le scroll après le chargement
+        }
+    }, 1500); // Garanti un temps d'affichage minimum pour le prestige
+});
+
+// --- AGENCY FINISHES ---
+
+// 1. Custom Cursor
+const cursor = document.getElementById('custom-cursor');
+const cursorDot = document.getElementById('custom-cursor-dot');
+
+if (cursor && cursorDot && window.innerWidth > 1024) {
+    document.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursor.style.left = `${posX}px`;
+        cursor.style.top = `${posY}px`;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+    });
+
+    const interactiveElements = document.querySelectorAll('a, button, .btn, .gallery-item, .equipment-item');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-grow'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-grow'));
+    });
+}
+
+// 2. Lightbox Logic
+function openLightbox(element) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const img = element.querySelector('img');
+
+    if (lightbox && lightboxImg && img) {
+        // Trigger Flash Effect
+        const flash = document.createElement('div');
+        flash.className = 'flash-effect';
+        document.body.appendChild(flash);
+        setTimeout(() => flash.remove(), 600);
+
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}

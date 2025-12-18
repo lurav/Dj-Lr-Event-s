@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Introuvable | Dj Lr Event's</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--color-bg);
+            color: #fff;
+        }
+
+        .error-container {
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 8rem;
+            color: var(--color-accent);
+            margin-bottom: 0;
+            line-height: 1;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--color-text-muted);
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-home:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <h3 class="logo" style="margin-bottom: 2rem;">Dj Lr <span>Event's</span></h3>
+        <h1>404</h1>
+        <p>Oups ! Cette page s'est perdue dans le mix.</p>
+        <a href="index.html" class="btn-home">Retour à l'accueil</a>
+    </div>
+</body>
+
+</html>

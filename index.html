@@ -13,6 +13,10 @@
         content="DJ mariage, DJ anniversaire, DJ soirée privée, DJ Nord, DJ Pas-de-Calais, animation événement, location matériel DJ, éclairage LED, DJ professionnel">
     <meta name="author" content="Dj Lr Event's - Lucas">
     <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png"
+        href="C:/Users/papiq/.gemini/antigravity/brain/db910921-3f53-4e42-8ef3-c874fbc5b21e/logo_lr_minimalist_serif_1766025214658.png">
+    <link rel="apple-touch-icon"
+        href="C:/Users/papiq/.gemini/antigravity/brain/db910921-3f53-4e42-8ef3-c874fbc5b21e/logo_lr_minimalist_serif_1766025214658.png">
     <meta name="google-site-verification" content="poBs9FLx0Al1oUjYbukgKpmIHertfmyDAOr-3pNkuhw" />
 
     <!-- Open Graph / Facebook -->
@@ -75,6 +79,18 @@
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-dot"></div>
+
+    <!-- Prestige Loader -->
+    <div id="prestige-loader">
+        <div class="loader-content">
+            <img src="C:/Users/papiq/.gemini/antigravity/brain/db910921-3f53-4e42-8ef3-c874fbc5b21e/logo_lr_minimalist_serif_1766025214658.png"
+                alt="Dj Lr Logo" class="loader-logo">
+            <div class="loader-line"></div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <header id="header">
@@ -120,8 +136,8 @@
                 <!-- Wedding Card -->
                 <div class="service-card">
                     <div class="card-img">
-                        <img src="assets/wedding_sparklers_fog.png"
-                            alt="DJ mariage professionnel avec éclairage LED et effets spéciaux - Hauts-de-France">
+                        <img src="assets/wedding_immersive.png"
+                            alt="DJ mariage professionnel - Ambiance immersive et prestigieuse" loading="lazy">
                     </div>
                     <div class="card-content">
                         <h3>Mariages de Rêve</h3>
@@ -203,12 +219,21 @@
             <p style="color: var(--color-text-muted); margin-top: 10px;">Un aperçu de l'expérience Dj Lr Event's</p>
 
             <div class="gallery-grid" style="margin-top: 3rem;">
-                <div class="gallery-item"><img src="assets/gallery1.jpg" alt="Ambiance Mariage"></div>
-                <div class="gallery-item"><img src="assets/gallery2.jpg" alt="Soirée Anniversaire"></div>
-                <div class="gallery-item"><img src="assets/gallery3.jpg" alt="Éclairage Événement"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/gallery1.jpg"
+                        alt="Ambiance Mariage" loading="lazy"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/gallery2.jpg"
+                        alt="Soirée Anniversaire" loading="lazy"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/gallery3.jpg"
+                        alt="Éclairage Événement" loading="lazy"></div>
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Structure -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
 
     <!-- Equipment Section (Simplified) -->
     <section id="equipment" class="section">
@@ -335,31 +360,50 @@
             </div>
             <div class="service-area-content" style="margin-top: 3rem; display: flex; justify-content: center;">
                 <div class="area-map" style="max-width: 500px; width: 100%;">
-                    <svg class="map-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                        <path class="map-region"
-                            d="M170,40 L280,30 L370,100 L390,200 L330,320 L180,360 L70,280 L20,170 L80,70 Z"
-                            style="fill: rgba(212,175,55,0.1); stroke: var(--color-accent); stroke-width: 2;" />
+                    <svg class="map-svg" viewBox="330 5 180 170" xmlns="http://www.w3.org/2000/svg">
+                        <g style="fill: rgba(212,175,55,0.05); stroke: var(--color-accent); stroke-width: 0.8;">
+                            <!-- Aisne -->
+                            <path
+                                d="m450.3 82.6l16.7 4.6 2.9 0.9 0.7 5.9-1.3 3.5 1.3 3.1-5 7.2-2.7 0.3 0.3 14.3-1 2.8-5.3-1.8-8 4-1.2 2.6 3.2 8-5.5 2.3 1.6 2.4-0.8 2.7 2.5 1.3-7.7 10.2-9.3-6-3.9-4.2 0.7-2.8-1.8-2.5-2.6-0.7 2.1-1.7-0.5-2.8-2.9-1.1-2.4 1.5-0.7-2.9 3 0.2-2.9-4.5 2.6-1.7 2.4-5.7 2.6-1.1-2.2-1.8 0.8-4.5-0.4-10.2-2.3-7 3.9-8.1 0.4-3.8 12.6-0.6 2.6-2.2 2.3 1.7z" />
+                            <!-- Nord -->
+                            <path
+                                d="m384.3 25.1l0.9-0.3 2 0.8 1.1-2.1 7.9-2.1 2.9 0.3 4.4-1.9v-0.1l1.2 4.8 2.3 3.7-1.6 1.9 0.6 0.8 1.2 5.8h3.4l2.7 5.1 3.1 1.5h2.1l0.6-2.4 8.1-3 3.8 7.5 0.1 1 1.3 5.2 2 3.5h0.1l2.8 0.6 2.1-1.4 2.4-0.2-0.5 2.2 2.2-0.7 2.8 1 1.8 4.4-0.6 2.3 0.7 2.3 1.4 1.9 1.1-2.6 4.6-0.3 2.4 1.1 4.3-1.7 5.5 6 2.3 0.2-2.1 2.4-1.4 4.7 2.6 0.2 1.4 3.3-3.5 3.9 0.2 2.5-16.7-4.6-5.2 1.8-2.3-1.7-2.6 2.2-12.6 0.6-3.3-2.6 3.5-10.6-1.8-2.4-3-0.4 0.7-2.7-3.9-5.2 3.1-1.6-3.8-5.3-5.9-1 1-6.1-1.3-2.5-1.7 2.2-11.6-0.5-4.1-4.2 0.6-2.8-5.5-2.6z" />
+                            <!-- Oise -->
+                            <path
+                                d="m372.8 131.1l-3.5-8.4 1.3-8-1.4-8.7 3.1-4.7 4.1 3.7 3.1-1.2 14.4 2.2 12.8 6.7 8.6-6.8 10.3-1.5 0.4 10.2-0.8 4.5 2.2 1.8-2.6 1.1-2.4 5.7-2.6 1.7 2.9 4.5-3-0.2 0.7 2.9 2.4-1.5 2.9 1.1 0.5 2.8-2.1 1.7-8.1 2.9-2.5-1.6-2 2.2-6.9-1-10.9-6.4-2.2 1.6-9.2-2.2-6.3 1.8-5.6-1.1-1.6-3.2z" />
+                            <!-- Pas-de-Calais -->
+                            <path
+                                d="m379.8 68.9l7.1 5.8 12-2.5-2.6 5.7 1.7 3.1 2.5-3.1 8.4 3.5 0.8-2.8 2.8 4.6 2.4-1.7 0.8 3.2 8.6-1.8 3.5-10.6-1.8-2.4-3-0.4 0.7-2.7-3.9-5.2 3.1-1.6-3.8-5.3-5.9-1 1-6.1-1.3-2.5-1.7 2.2-11.6-0.5-4.1-4.2 0.6-2.8-5.5-2.6-6.3-12.1-11.7 3.4-6.4 5.4 0.9 5.6-1.7 4.6 0.6 6.7 2 4.2-1.7-1.4-0.3 9.7 2.3 1.6 10.5 1z" />
+                            <!-- Somme -->
+                            <path
+                                d="m424.3 82.9l3.3 2.6-0.4 3.8-3.9 8.1 2.3 7-10.3 1.5-8.6 6.8-12.8-6.7-14.4-2.2-3.1 1.2-4.1-3.7-3.4-8.4-11.8-10 2.4-1.9 3.4-6.6 1.9-1.1 0.1-0.1 1.4 1.8 3.5 0.3-5.6-6 1.2-5.1 2.9 0.7 10.5 1 1 3 7.1 5.8 12-2.5-2.6 5.7 1.7 3.1 2.5-3.1 8.4 3.5 0.8-2.8 2.8 4.6 2.4-1.7 0.8 3.2z" />
+                        </g>
 
-                        <circle cx="120" cy="70" r="6" fill="var(--color-accent)" />
-                        <text x="132" y="75" fill="#fff" style="font-size: 11px; font-weight: 600;">Dunkerque</text>
+                        <!-- Villes (Coordonnées ajustées pour éviter les coupes et chevauchements) -->
+                        <circle cx="395" cy="22" r="3" fill="var(--color-accent)" />
+                        <text x="395" y="14" fill="#fff"
+                            style="font-size: 6px; font-weight: 600; text-anchor: middle;">Dunkerque</text>
 
-                        <circle cx="85" cy="120" r="6" fill="var(--color-accent)" />
-                        <text x="35" y="125" fill="#fff" style="font-size: 11px; font-weight: 600;">Calais</text>
+                        <circle cx="365" cy="45" r="3" fill="var(--color-accent)" />
+                        <text x="360" y="47" fill="#fff"
+                            style="font-size: 6px; font-weight: 600; text-anchor: end;">Calais</text>
 
-                        <circle cx="200" cy="110" r="6" fill="var(--color-accent)" />
-                        <text x="212" y="115" fill="#fff" style="font-size: 11px; font-weight: 600;">Lille</text>
+                        <circle cx="415" cy="50" r="3" fill="var(--color-accent)" />
+                        <text x="420" y="52" fill="#fff" style="font-size: 6px; font-weight: 600;">Lille</text>
 
-                        <circle cx="160" cy="180" r="6" fill="var(--color-accent)" />
-                        <text x="110" y="185" fill="#fff" style="font-size: 11px; font-weight: 600;">Arras</text>
+                        <circle cx="395" cy="80" r="3" fill="var(--color-accent)" />
+                        <text x="390" y="82" fill="#fff"
+                            style="font-size: 6px; font-weight: 600; text-anchor: end;">Arras</text>
 
-                        <circle cx="290" cy="160" r="6" fill="var(--color-accent)" />
-                        <text x="302" y="165" fill="#fff" style="font-size: 11px; font-weight: 600;">Valenciennes</text>
+                        <circle cx="445" cy="70" r="3" fill="var(--color-accent)" />
+                        <text x="450" y="72" fill="#fff" style="font-size: 6px; font-weight: 600;">Valenciennes</text>
 
-                        <circle cx="250" cy="260" r="6" fill="var(--color-accent)" />
-                        <text x="262" y="265" fill="#fff" style="font-size: 11px; font-weight: 600;">St-Quentin</text>
+                        <circle cx="450" cy="110" r="3" fill="var(--color-accent)" />
+                        <text x="458" y="112" fill="#fff" style="font-size: 6px; font-weight: 600;">St-Quentin</text>
 
-                        <circle cx="135" cy="285" r="6" fill="var(--color-accent)" />
-                        <text x="85" y="290" fill="#fff" style="font-size: 11px; font-weight: 600;">Amiens</text>
+                        <circle cx="400" cy="115" r="3" fill="var(--color-accent)" />
+                        <text x="395" y="117" fill="#fff"
+                            style="font-size: 6px; font-weight: 600; text-anchor: end;">Amiens</text>
                     </svg>
                 </div>
             </div>
@@ -408,6 +452,11 @@
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/33649274731" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
@@ -420,10 +469,14 @@
             <div class="social-links" style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem;">
                 <a href="https://www.facebook.com/profile.php?id=61570880282731" target="_blank"
                     style="font-size: 1.5rem; color: #fff;"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/dj.lr.events/" target="_blank"
+                    style="font-size: 1.5rem; color: #fff;"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.pagesjaunes.fr/pros/63794669" target="_blank"
                     style="font-size: 1.5rem; color: #fff;"><i class="fas fa-book"></i></a>
             </div>
             <p style="color: #666; font-size: 0.8rem;">&copy; 2025 Dj Lr Event's. Tous droits réservés.</p>
+            <p style="margin-top: 10px;"><a href="mentions-legales.html"
+                    style="color: #444; font-size: 0.7rem; text-decoration: underline;">Mentions Légales & RGPD</a></p>
         </div>
     </footer>
 

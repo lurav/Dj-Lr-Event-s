@@ -2122,3 +2122,444 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 4rem 0 !important;
   }
 }
+
+/* --- PRESTIGE FINISHES --- */
+
+/* 1. Custom Selection */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* 2. Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--color-accent), #a38128);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a38128;
+}
+
+/* 3. Prestige Loader */
+#prestige-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#prestige-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.loader-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: loaderLogo 1.5s ease forwards;
+}
+
+.loader-line {
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  margin: 0 auto;
+  animation: loaderLine 1.5s ease forwards 0.5s;
+}
+
+@keyframes loaderLogo {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loaderLine {
+  to {
+    width: 150px;
+  }
+}
+
+/* 4. Magnetic Hover Effect on Buttons */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.6s ease;
+}
+
+.btn:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+
+/* 5. Smooth Section Reveal */
+.section {
+  opacity: 0 !important;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.section.visible {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+
+/* --- AGENCY FINISHES --- */
+
+/* 6. Custom Cursor (Desktop Only) */
+@media (min-width: 1025px) {
+  #custom-cursor {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10001;
+    transition: transform 0.15s ease-out, background 0.3s ease, border 0.3s ease;
+    transform: translate(-50%, -50%);
+  }
+
+  #custom-cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10001;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-grow {
+    transform: translate(-50%, -50%) scale(1.5) !important;
+    background: rgba(212, 175, 55, 0.1);
+    border: none !important;
+  }
+}
+
+/* 7. Lightbox & Gallery Enhancements */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+  background: var(--color-bg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item img {
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.15);
+  filter: brightness(0.5) blur(2px);
+}
+
+/* Luxury Magnifying Glass */
+.gallery-item::after {
+  content: '\f002';
+  /* Search icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  color: var(--color-accent);
+  background: rgba(0, 0, 0, 0.6);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 11000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+/* Photo Gold Flash Effect */
+.flash-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--color-accent) 0%, rgba(255, 184, 0, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+  z-index: 12000;
+  pointer-events: none;
+  opacity: 0;
+  animation: flashAnim 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes flashAnim {
+  0% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 85%;
+  border: 2px solid var(--color-accent);
+  border-radius: 4px;
+  box-shadow: 0 0 60px rgba(212, 175, 55, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: ultraReveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* Luxury Border Drawing Effect */
+.lightbox::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 85%;
+  border: 1px solid var(--color-accent);
+  opacity: 0;
+  z-index: 11001;
+  pointer-events: none;
+  animation: drawBorder 1.2s ease forwards 0.3s;
+}
+
+@keyframes drawBorder {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes ultraReveal {
+  0% {
+    transform: scale(0.9) translateY(20px);
+    filter: blur(20px) brightness(1.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    filter: blur(0) brightness(1);
+    opacity: 1;
+  }
+}
+
+/* Shimmer Highlight Effect on Lightbox Content */
+.lightbox-content::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.2) 50%, transparent 55%);
+  animation: shimmer 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translate(-100%, -100%);
+  }
+
+  100% {
+    transform: translate(100%, 100%);
+  }
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 11002;
+}
+
+.close-lightbox:hover {
+  color: var(--color-accent);
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 8. Extra Aération (Agency Standard) */
+.section {
+  padding: 8rem 0 !important;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem 0 !important;
+  }
+}
+
+/* 9. Luxury Hover Effects for Service Cards (L'Art de Recevoir) */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s ease;
+  z-index: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+}
+
+.service-card .card-img {
+  overflow: hidden;
+  position: relative;
+}
+
+.service-card .card-img img {
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-card:hover .card-img img {
+  transform: scale(1.1);
+}
+
+/* Luxury Light Beam Reveal */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-25deg);
+  transition: 0.7s;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.service-card:hover::before {
+  left: 150%;
+}
+
+/* Gold Border Accent on Hover */
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-accent);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 3;
+}
+
+.service-card:hover::after {
+  opacity: 0.5;
+}
