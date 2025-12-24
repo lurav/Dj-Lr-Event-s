@@ -113,75 +113,87 @@ backToTopButton.addEventListener('click', () => {
 });
 
 // Contact Form with mailto
-const contactForm = document.getElementById('contact-form');
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-        // Get form values
-        const name = document.getElementById('user_name').value;
-        const email = document.getElementById('user_email').value;
-        const phone = document.getElementById('user_phone').value || 'Non renseigné';
-        const eventType = document.getElementById('event_type').value;
-        const eventDate = document.getElementById('event_date').value;
-        const guestCount = document.getElementById('guest_count').value || 'Non renseigné';
-        const eventLocation = document.getElementById('event_location').value;
-        const budgetRange = document.getElementById('budget_range').value || 'Non défini';
-        const message = document.getElementById('message').value || 'Aucun détail supplémentaire';
+            // Feedback immediat
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Préparation de l\'email...';
+            btn.disabled = true;
 
-        // Format event type for display
-        const eventTypeLabels = {
-            'mariage': '💍 Mariage',
-            'anniversaire': '🎂 Anniversaire',
-            'soiree-privee': '🥂 Soirée Privée',
-            'entreprise': '💼 Événement d\'Entreprise',
-            'autre': '🎉 Autre'
-        };
-        const eventTypeDisplay = eventTypeLabels[eventType] || eventType;
+            try {
+                // Helper to safely get value
+                const getValue = (id) => {
+                    const el = document.getElementById(id);
+                    return el ? el.value : 'Non spécifié';
+                };
 
-        // Create email body
-        const emailBody = `Nouvelle demande de réservation depuis le site Dj Lr Event's
+                // Get form values
+                const name = getValue('user_name');
+                const email = getValue('user_email');
+                const phone = getValue('user_phone');
+                const eventType = getValue('event_type');
+                const eventDate = getValue('event_date');
+                const guestCount = getValue('guest_count');
+                const eventLocation = getValue('event_location');
+                const budgetRange = getValue('budget_range');
+                const message = getValue('message');
 
-═══════════════════════════════════════
-INFORMATIONS CLIENT
-═══════════════════════════════════════
+                // Format event type
+                const eventTypeLabels = {
+                    'mariage': '💍 Mariage',
+                    'anniversaire': '🎂 Anniversaire',
+                    'soiree-privee': '🥂 Soirée Privée',
+                    'entreprise': '💼 Événement d\'Entreprise',
+                    'autre': '🎉 Autre'
+                };
+                const eventTypeDisplay = eventTypeLabels[eventType] || eventType;
+
+                // Simple Email Body
+                const emailBody = `NOUVELLE DEMANDE: ${eventTypeDisplay}
+            
+CLIENT
 Nom: ${name}
 Email: ${email}
-Téléphone: ${phone}
+Tel: ${phone}
 
-═══════════════════════════════════════
-DÉTAILS DE L'ÉVÉNEMENT
-═══════════════════════════════════════
-Type d'événement: ${eventTypeDisplay}
+EVENEMENT
 Date: ${eventDate}
 Lieu: ${eventLocation}
-Nombre d'invités: ${guestCount}
-Budget estimé: ${budgetRange}
+Invités: ${guestCount}
+Budget: ${budgetRange}
 
-═══════════════════════════════════════
-MESSAGE DU CLIENT
-═══════════════════════════════════════
-${message}
+MESSAGE
+${message}`;
 
-═══════════════════════════════════════
-Cette demande nécessite une réponse sous 24h.`;
+                // Create link
+                const subject = `Devis ${eventTypeDisplay} - ${name}`;
+                // Utilisation de window.open pour contourner certains blocages
+                const mailtoLink = `mailto:dj.lr.events@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
-        // Create mailto link
-        const mailtoLink = `mailto:dj.lr.events@icloud.com?subject=Demande de ${eventTypeDisplay} - ${name}&body=${encodeURIComponent(emailBody)}`;
+                window.location.href = mailtoLink;
 
-        // Open email client
-        window.location.href = mailtoLink;
+                // Reset button logic + Message d'aide
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    alert("Si votre messagerie ne s'est pas ouverte automatiquement, c'est qu'aucun compte n'est configuré.\n\nMerci de nous écrire directement à : dj.lr.events@icloud.com");
+                }, 1000);
 
-        // Show success message
-        alert('✅ Votre demande a été préparée ! Votre client email va s\'ouvrir. Merci de votre confiance !');
-
-        // Reset form after a short delay
-        setTimeout(() => {
-            contactForm.reset();
-        }, 500);
-    });
-}
+            } catch (error) {
+                console.error(error);
+                btn.textContent = originalText;
+                btn.disabled = false;
+                alert("Erreur technique. Merci de nous contacter par téléphone.");
+            }
+        });
+    }
+});
 
 // Animated Stats Counter
 const statsSection = document.getElementById('stats');
