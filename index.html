@@ -94,6 +94,10 @@
     <div id="custom-cursor"></div>
     <div id="custom-cursor-dot"></div>
 
+    <!-- New Year Confetti Canvas -->
+    <canvas id="confetti-canvas"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50;"></canvas>
+
     <!-- Prestige Loader -->
     <div id="prestige-loader">
         <div class="loader-content">
@@ -124,11 +128,21 @@
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
-            <h1>Sublimez Votre Événement <br><span>Avec Exception</span></h1>
-            <p>Plus qu'une soirée, vivez une expérience sensorielle unique. Dj Lr Event's orchestre vos moments les plus
-                précieux avec passion, expertise et une touche de magie.</p>
+            <div class="new-year-badge"
+                style="display: inline-block; background: rgba(212, 175, 55, 0.2); border: 1px solid var(--color-accent); padding: 0.5rem 1.5rem; border-radius: 50px; margin-bottom: 1.5rem; color: var(--color-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; backdrop-filter: blur(5px);">
+                ✨ Édition festive ✨
+            </div>
+            <h1 class="new-year-title">Bonne Année <br><span class="gradient-text">2026</span></h1>
+            <p>Dj Lr Event's vous souhaite une année remplie de joie, de réussites et de fêtes inoubliables. Commençons
+                cette nouvelle année ensemble de la plus belle des manières.</p>
+
+            <div id="new-year-countdown"
+                style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
+                <!-- Countdown will be injected by JS -->
+            </div>
+
             <p class="price-highlight">
-                ★ Des Prestations d'Excellence à Prix Imbattables ★</p>
+                ★ Réservez dès maintenant pour vos événements 2026 ★</p>
             <a href="#contact" class="btn">Réserver Ma Date</a>
         </div>
     </section>

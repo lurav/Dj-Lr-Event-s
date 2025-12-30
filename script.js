@@ -298,3 +298,133 @@ function closeLightbox() {
         document.body.style.overflow = 'auto';
     }
 }
+
+/* --- NEW YEAR THEME EXTRAS --- */
+document.addEventListener('DOMContentLoaded', () => {
+    initNewYearCountdown();
+    initConfetti();
+});
+
+function initNewYearCountdown() {
+    const countdownContainer = document.getElementById('new-year-countdown');
+    if (!countdownContainer) return;
+
+    // Target Date: Jan 1, 2026 00:00:00
+    // Note: Month is 0-indexed in JS Date (0 = Jan)
+    const targetDate = new Date(2026, 0, 1, 0, 0, 0).getTime();
+
+    function update() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            countdownContainer.innerHTML = '<div class="new-year-message" style="font-size: 2rem; color: var(--color-accent); font-weight: bold;">🎉 BONNE ANNÉE ! 🎉</div>';
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownContainer.innerHTML = `
+            <div class="countdown-segment">
+                <span class="countdown-number">${days}</span>
+                <span class="countdown-label">Jours</span>
+            </div>
+            <div class="countdown-segment">
+                <span class="countdown-number">${hours}</span>
+                <span class="countdown-label">Heures</span>
+            </div>
+            <div class="countdown-segment">
+                <span class="countdown-number">${minutes}</span>
+                <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-segment">
+                <span class="countdown-number">${seconds}</span>
+                <span class="countdown-label">Sec</span>
+            </div>
+        `;
+    }
+
+    setInterval(update, 1000);
+    update(); // Run immediately
+}
+
+function initConfetti() {
+    const canvas = document.getElementById('confetti-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    const particles = [];
+    const particleCount = 100; // Increased for better effect
+    // Gold Palette
+    const colors = ['#d4af37', '#fcf6ba', '#b38728', '#aa771c', '#ffffff'];
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height - height; // Start above screen randomly
+            this.rotation = Math.random() * 360;
+            this.size = Math.random() * 8 + 4; // Varying sizes
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.speed = Math.random() * 3 + 1;
+            this.oscillationSpeed = Math.random() * 0.05 + 0.01;
+            this.oscillationDistance = Math.random() * 40 + 20;
+            this.oscillationOffset = Math.random() * Math.PI * 2;
+        }
+
+        update() {
+            this.y += this.speed;
+            this.rotation += this.speed;
+
+            // Side to side movement
+            this.x += Math.sin(this.y * 0.01 + this.oscillationOffset) * 0.5;
+
+            // Reset when off screen
+            if (this.y > height) {
+                this.y = -20;
+                this.x = Math.random() * width;
+            }
+        }
+
+        draw() {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.rotation * Math.PI / 180);
+            ctx.fillStyle = this.color;
+            // Draw a diamond/square shape for confetti look
+            ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+            ctx.restore();
+        }
+    }
+
+    // Initialize particles
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+    });
+}
