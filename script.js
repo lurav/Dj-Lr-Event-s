@@ -428,3 +428,57 @@ function initConfetti() {
         canvas.height = height;
     });
 }
+
+/* --- 3D TILT EFFECT LOGIC --- */
+document.addEventListener('DOMContentLoaded', () => {
+    // Add tilt class to cards
+    document.querySelectorAll('.service-card, .timeline-content').forEach(card => {
+        card.classList.add('tilt-card');
+
+        card.addEventListener('mousemove', handleTilt);
+        card.addEventListener('mouseleave', resetTilt);
+    });
+});
+
+function handleTilt(e) {
+    const card = this;
+    const cardRect = card.getBoundingClientRect();
+
+    // Calculate mouse position relative to center of card
+    const cardCenterX = cardRect.left + cardRect.width / 2;
+    const cardCenterY = cardRect.top + cardRect.height / 2;
+
+    const mouseX = e.clientX - cardCenterX;
+    const mouseY = e.clientY - cardCenterY;
+
+    // Rotate scaling factor (adjust for sensitivity)
+    const rotateX = (mouseY / cardRect.height / 2) * -15; // Max 15 deg tilt
+    const rotateY = (mouseX / cardRect.width / 2) * 15;
+
+    card.style.transition = 'none'; // Remove transition for instant follow
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+    // Add shine effect if not present
+    let shine = card.querySelector('.shine-effect');
+    if (!shine) {
+        shine = document.createElement('div');
+        shine.className = 'shine-effect';
+        shine.style.position = 'absolute';
+        shine.style.top = '0';
+        shine.style.left = '0';
+        shine.style.width = '100%';
+        shine.style.height = '100%';
+        shine.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%)';
+        shine.style.pointerEvents = 'none';
+        shine.style.zIndex = '10';
+        card.appendChild(shine);
+    }
+
+    // Move shine
+    // ... basic static shine for now, can be dynamic
+}
+
+function resetTilt() {
+    this.style.transition = 'transform 0.5s ease-out';
+    this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+}

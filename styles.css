@@ -2653,3 +2653,120 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 0.6rem;
   }
 }
+
+/* --- TIMELINE STYLES --- */
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  width: 2px;
+  background: rgba(212, 175, 55, 0.3);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.timeline-item {
+  padding: 1rem 3rem;
+  position: relative;
+  background: inherit;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-content {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  padding: 1.5rem;
+  border-radius: 12px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+}
+
+.timeline-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: -50px;
+  /* Position for left items */
+  top: 20px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.timeline-item.right .timeline-icon {
+  left: -50px;
+  right: auto;
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item.left {
+    text-align: left;
+  }
+
+  .timeline-icon {
+    left: 0;
+    /* Align icon directly on line */
+    right: auto;
+    transform: translateX(0);
+    /* Center relative to line which is at 20px */
+    left: -10px;
+    /* Adjust to center on line */
+  }
+
+  .timeline-item.right .timeline-icon {
+    left: -10px;
+  }
+}
+
+/* --- 3D TILT EFFECT --- */
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.tilt-content {
+  transform: translateZ(20px);
+}
