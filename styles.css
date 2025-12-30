@@ -720,12 +720,13 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
   #hero {
-    height: 90vh;
-    padding: 15rem 1rem 0 1rem;
-    /* Huge padding-top to force content way down */
+    height: auto;
+    min-height: 90vh;
+    padding: 140px 1rem 4rem 1rem;
+    /* Espace sécurisé en haut pour le header */
     background-attachment: scroll;
-    align-items: flex-start;
-    /* Align content to top (after padding) instead of center */
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .new-year-badge {
