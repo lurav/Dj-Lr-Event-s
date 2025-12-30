@@ -726,8 +726,8 @@ footer {
   }
 
   .new-year-badge {
-    margin-top: 5rem;
-    /* Increased to push it well below the header logo */
+    margin-top: 8.5rem;
+    /* Significantly increased to clear the fixed header completely */
   }
 
   .hero-content h1 {
