@@ -2744,12 +2744,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media (max-width: 768px) {
   .timeline-line {
-    left: 20px;
+    left: 30px;
+    /* Move line slightly right */
   }
 
   .timeline-item {
     width: 100%;
-    padding-left: 50px;
+    padding-left: 80px;
+    /* More space for the icon */
     padding-right: 0;
     text-align: left;
   }
@@ -2762,18 +2764,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     text-align: left;
   }
 
+  /* Reset icon position for mobile to sit on the line */
   .timeline-icon {
-    left: 0;
-    /* Align icon directly on line */
+    left: -65px !important;
+    /* Position correctly on the line outside content */
     right: auto;
-    transform: translateX(0);
-    /* Center relative to line which is at 20px */
-    left: -10px;
-    /* Adjust to center on line */
+    top: 20px;
+    transform: none;
+    /* Center vertically */
+    margin-top: 0;
   }
 
+  /* Reset specific right-side adjustments */
   .timeline-item.right .timeline-icon {
-    left: -10px;
+    left: -65px !important;
+  }
+
+  .timeline-content {
+    padding: 1.5rem;
+    /* Ensure padding remains */
   }
 }
 
