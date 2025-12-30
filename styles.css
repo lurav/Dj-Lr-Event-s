@@ -285,6 +285,13 @@ nav {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.hero-content .btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
 /* Services */
 .services-grid {
   display: grid;
