@@ -747,6 +747,16 @@ footer {
     display: inline-block;
   }
 
+  .hero-content .btn {
+    margin-bottom: 3rem;
+    /* Espace en bas pour éviter qu'il colle au bord */
+    width: 80%;
+    /* Plus large pour être facilement cliquable */
+    max-width: 300px;
+    display: inline-block;
+    /* Assure qu'il respecte les margins */
+  }
+
   .hero-content p {
     font-size: 0.95rem;
     line-height: 1.6;
