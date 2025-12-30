@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.djlrevents.fr/sitemap.xml
+Sitemap: https://dj-lr-event-s.vercel.app/sitemap.xml
