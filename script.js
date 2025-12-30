@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const eventDate = getValue('event_date');
                 const guestCount = getValue('guest_count');
                 const eventLocation = getValue('event_location');
-                const budgetRange = getValue('budget_range');
+
                 const message = getValue('message');
 
                 // Format event type
@@ -166,7 +166,7 @@ EVENEMENT
 Date: ${eventDate}
 Lieu: ${eventLocation}
 Invités: ${guestCount}
-Budget: ${budgetRange}
+
 
 MESSAGE
 ${message}`;
