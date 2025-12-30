@@ -178,11 +178,11 @@ ${message}`;
 
                 window.location.href = mailtoLink;
 
-                // Reset button logic + Message d'aide
+                // Show Custom Modal instead of Alert
                 setTimeout(() => {
                     btn.textContent = originalText;
                     btn.disabled = false;
-                    alert("Si votre messagerie ne s'est pas ouverte automatiquement, c'est qu'aucun compte n'est configuré.\n\nMerci de nous écrire directement à : dj.lr.events@icloud.com");
+                    openContactModal(); // CALL THE NEW MODAL
                 }, 1000);
 
             } catch (error) {
@@ -482,3 +482,61 @@ function resetTilt() {
     this.style.transition = 'transform 0.5s ease-out';
     this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
 }
+
+/* --- SCROLL PROGRESS BAR --- */
+window.addEventListener('scroll', () => {
+    const scrollProgress = document.getElementById('scroll-progress-bar');
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollTop = document.documentElement.scrollTop;
+
+    if (scrollProgress && height > 0) {
+        const width = (scrollTop / height) * 100;
+        scrollProgress.style.width = `${width}%`;
+    }
+});
+
+/* --- CUSTOM MODAL HANDLING --- */
+function openContactModal() {
+    const modal = document.getElementById('contact-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeContactModal() {
+    const modal = document.getElementById('contact-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close modal when clicking outside
+document.getElementById('contact-modal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'contact-modal') {
+        closeContactModal();
+    }
+});
+
+/* --- OVERRIDE CONTACT FORM SUBMIT --- */
+// We need to re-attach the event listener to use the modal instead of alert
+// This runs after the DOM is fully loaded + previous script execution
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+
+    // Remove old listener (by cloning node) or just add new logic
+    // Simpler here: we'll hijack the existing submit logic by modifying the previous block or just adding this on top?
+    // The previous block uses window.location.href which redirects. 
+    // We will let the "mailto" happen, then show the modal.
+
+    if (contactForm) {
+        // We can't easily remove the anonymous function from before. 
+        // But we can add a listener that runs *after*? 
+        // Or better, let's just accept that the previous alert won't show if we replace the file content for that block.
+        // Actually, the best way in this context is to UPDATE the previous block in the file.
+        // But since I am appending here, I will rely on the previous tool call having updated the file?
+        // Wait, I haven't updated the script.js "mailto" block yet. 
+        // I should have done a replace on the mailto block.
+    }
+});
