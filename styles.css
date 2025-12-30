@@ -721,10 +721,13 @@ footer {
 @media (max-width: 768px) {
   #hero {
     height: 90vh;
-    /* Slightly less than full height to see the next section hint */
     padding: 0 1rem;
     background-attachment: scroll;
-    /* Better performance on mobile */
+  }
+
+  .new-year-badge {
+    margin-top: 5rem;
+    /* Increased to push it well below the header logo */
   }
 
   .hero-content h1 {
