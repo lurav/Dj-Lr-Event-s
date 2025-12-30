@@ -721,13 +721,15 @@ footer {
 @media (max-width: 768px) {
   #hero {
     height: 90vh;
-    padding: 0 1rem;
+    padding: 15rem 1rem 0 1rem;
+    /* Huge padding-top to force content way down */
     background-attachment: scroll;
+    align-items: flex-start;
+    /* Align content to top (after padding) instead of center */
   }
 
   .new-year-badge {
-    margin-top: 8.5rem;
-    /* Significantly increased to clear the fixed header completely */
+    margin-top: 0;
   }
 
   .hero-content h1 {
