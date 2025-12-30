@@ -257,6 +257,9 @@ nav {
   margin-bottom: 1rem;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
   letter-spacing: -1px;
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-content span {
@@ -727,6 +730,8 @@ footer {
     background-attachment: scroll;
     align-items: center;
     justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
   }
 
   .new-year-badge {
