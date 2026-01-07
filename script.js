@@ -69,29 +69,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Intersection Observer for Fade-in Animations
+// Intersection Observer for Smooth Staggered Reveals
 const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1
+    threshold: 0.15 // Slightly higher to ensure element is actually entering
 };
 
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Optional: Stop observing once visible if you want it to happen only once
-            // observer.unobserve(entry.target); 
+const observer = new IntersectionObserver((entries) => {
+    let delay = 0;
+    entries.forEach((entry) => {
+        if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+            // Calculate delay based on whether we are processing a batch
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, delay);
+            // Stagger delay for multiple items appearing at once (e.g., grids)
+            delay += 150;
+
+            // Allow re-animating if it scrolls way out? No, keep it premium (once loaded, it stays)
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Target all sections, service cards and contact items for animation
-document.querySelectorAll('.section, .service-card, .contact-item, .gallery-item, .testimonial-card, .process-step').forEach((el, index) => {
-    // Optional: Add staggering delay via inline style if needed, or simple observe
-    // Check if it's a card to stagger? 
-    // For simplicity, just observe them all. CSS transition handles the look.
-    observer.observe(el);
+// Target sections and grid items
+const revealElements = document.querySelectorAll(
+    '.section, .service-card, .contact-item, .gallery-item, .equipment-item, .video-item, .timeline-item, .faq-item, .social-card, .badge-item, .about-image, .about-text, .footer-col, .contact-form, .text-center, .service-area-content, .why-item, .hero-content, .footer-bottom'
+);
+
+revealElements.forEach(el => observer.observe(el));
+
+
+// --- PARALLAX EFFECTS ---
+const heroSection = document.getElementById('hero');
+const heroContent = document.querySelector('.hero-content');
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+
+    // Hero Parallax
+    if (heroSection && scrolled < window.innerHeight) {
+        // Background moves slower (0.5 speed)
+        // We use background-position-y. Note: This affects gradient too, but usually looks fine.
+        heroSection.style.backgroundPositionY = `${scrolled * 0.5}px`;
+
+        // Content moves slightly faster/up (0.3 speed) & fades out
+        if (heroContent) {
+            heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
+            heroContent.style.opacity = 1 - (scrolled / 700);
+        }
+    }
+
+    // Optional: Rotation on scroll for badges (subtle)
+    const badge = document.querySelector('.new-year-badge');
+    if (badge) {
+        badge.style.transform = `rotate(${scrolled * 0.02}deg)`;
+    }
 });
 
 // Back to Top Button
@@ -249,28 +283,7 @@ window.addEventListener('load', () => {
 
 // --- AGENCY FINISHES ---
 
-// 1. Custom Cursor
-const cursor = document.getElementById('custom-cursor');
-const cursorDot = document.getElementById('custom-cursor-dot');
-
-if (cursor && cursorDot && window.innerWidth > 1024) {
-    document.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        cursor.style.left = `${posX}px`;
-        cursor.style.top = `${posY}px`;
-
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-    });
-
-    const interactiveElements = document.querySelectorAll('a, button, .btn, .gallery-item, .equipment-item');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('cursor-grow'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-grow'));
-    });
-}
+// 1. Lightbox Logic (Cursor Logic Removed)
 
 // 2. Lightbox Logic
 function openLightbox(element) {

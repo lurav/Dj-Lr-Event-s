@@ -118,14 +118,11 @@ img {
 
 .section {
   padding: var(--spacing-lg) 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
+  /* Removed block animation for more granular content reveals */
 }
 
 .section.visible {
-  opacity: 1;
-  transform: translateY(0);
+  /* No op needed */
 }
 
 .text-center {
@@ -306,16 +303,24 @@ nav {
   backdrop-filter: blur(10px);
   border-radius: 16px;
   overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  /* Initial State for Scroll Reveal */
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(40px) scale(0.95);
+  filter: blur(5px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease, border-color 0.3s ease;
+  /* Keep hover transitions separate and fast */
 }
 
 .service-card.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 .service-card:hover {
@@ -2262,6 +2267,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* 5. Smooth Section Reveal */
+/* This rule is now redundant as .section is no longer animated as a block.
+   Individual elements within sections will be animated instead. */
+/*
 .section {
   opacity: 0 !important;
   transform: translateY(30px);
@@ -2272,40 +2280,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 1 !important;
   transform: translateY(0);
 }
+*/
 
 /* --- AGENCY FINISHES --- */
 
-/* 6. Custom Cursor (Desktop Only) */
-@media (min-width: 1025px) {
-  #custom-cursor {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--color-accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 10001;
-    transition: transform 0.15s ease-out, background 0.3s ease, border 0.3s ease;
-    transform: translate(-50%, -50%);
-  }
-
-  #custom-cursor-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 10001;
-    transform: translate(-50%, -50%);
-  }
-
-  .cursor-grow {
-    transform: translate(-50%, -50%) scale(1.5) !important;
-    background: rgba(212, 175, 55, 0.1);
-    border: none !important;
-  }
-}
+/* Cleaned up remnant */
 
 /* 7. Lightbox & Gallery Enhancements */
 .gallery-item {
@@ -2426,30 +2405,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   animation: ultraReveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
-/* Luxury Border Drawing Effect */
-.lightbox::before {
-  content: '';
-  position: absolute;
-  width: 90%;
-  height: 85%;
-  border: 1px solid var(--color-accent);
-  opacity: 0;
-  z-index: 11001;
-  pointer-events: none;
-  animation: drawBorder 1.2s ease forwards 0.3s;
-}
-
-@keyframes drawBorder {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1.02);
-  }
-}
+/* Luxury Border Drawing Effect (Removed) */
 
 @keyframes ultraReveal {
   0% {
@@ -2518,7 +2474,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* 8. Extra Aération (Agency Standard) */
 .section {
-  padding: 8rem 0 !important;
+  padding: 8rem 0;
+  /* Removed !important as per instruction's implied reset */
 }
 
 @media (max-width: 768px) {
@@ -2807,95 +2764,157 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .tilt-content {
   transform: translateZ(20px);
 }
+
 /* About Section Refined */
 .about-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .about-image {
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .about-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
 .about-image:hover img {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .about-text {
-    flex: 1;
-    min-width: 300px;
-    text-align: left;
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
 }
 
 .about-text h2 {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .about-label {
-    color: var(--color-accent);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-    display: block;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: block;
 }
 
 .about-stats {
-    display: flex;
-    gap: 3rem;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stat-item strong {
-    display: block;
-    font-size: 2.5rem;
-    color: var(--color-accent);
-    line-height: 1;
-    font-family: var(--font-heading);
+  display: block;
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  line-height: 1;
+  font-family: var(--font-heading);
 }
 
 .stat-item span {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    margin-top: 0.5rem;
-    display: block;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+  display: block;
 }
 
 @media (max-width: 768px) {
-    .about-container {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 2rem;
-    }
+  .about-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
 
-    .about-text {
-        text-align: center;
-    }
-    
-    .about-stats {
-        justify-content: center;
-    }
+  .about-text {
+    text-align: center;
+  }
+
+  .about-stats {
+    justify-content: center;
+  }
 }
 
+/* --- PREMIUM SCROLL REVEALS --- */
+/* Base hidden state for granular content */
+.gallery-item,
+.equipment-item,
+.contact-item,
+.video-item,
+.timeline-item,
+.faq-item,
+.social-card,
+.badge-item,
+.about-image,
+.about-text,
+.footer-col,
+.contact-form,
+.text-center,
+/* Section Headers */
+.service-area-content,
+.why-item,
+.hero-content,
+.footer-bottom {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Keyframe Animation for Entrance */
+@keyframes revealUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    filter: blur(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Apply Animation when Visible */
+.gallery-item.visible,
+.equipment-item.visible,
+.contact-item.visible,
+.video-item.visible,
+.timeline-item.visible,
+.faq-item.visible,
+.social-card.visible,
+.badge-item.visible,
+.about-image.visible,
+.about-text.visible,
+.footer-col.visible,
+.contact-form.visible,
+.text-center.visible,
+.service-area-content.visible,
+.why-item.visible,
+.hero-content.visible,
+.footer-bottom.visible {
+  animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+```
