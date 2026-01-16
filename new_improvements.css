@@ -59,7 +59,7 @@
     }
 }
 
-/* Mobile Footer adjustments */
+/* Mobile Footer and Partners adjustments */
 @media (max-width: 768px) {
     .footer-grid {
         text-align: center;
@@ -77,6 +77,17 @@
 
     .legal-links {
         margin-top: 1rem;
+    }
+
+    .partners-slider {
+        margin-top: 3rem;
+        /* Reduce margin on mobile */
+    }
+
+    /* Ensure other text is centered */
+    .text-center h2,
+    .text-center p {
+        padding: 0 1rem;
     }
 }
 
