@@ -121,11 +121,7 @@ window.addEventListener('scroll', () => {
         }
     }
 
-    // Optional: Rotation on scroll for badges (subtle)
-    const badge = document.querySelector('.new-year-badge');
-    if (badge) {
-        badge.style.transform = `rotate(${scrolled * 0.02}deg)`;
-    }
+
 });
 
 // Back to Top Button
@@ -312,56 +308,7 @@ function closeLightbox() {
     }
 }
 
-/* --- NEW YEAR THEME EXTRAS --- */
-document.addEventListener('DOMContentLoaded', () => {
-    initNewYearCountdown();
-});
 
-function initNewYearCountdown() {
-    const countdownContainer = document.getElementById('new-year-countdown');
-    if (!countdownContainer) return;
-
-    // Target Date: Jan 1, 2026 00:00:00
-    // Note: Month is 0-indexed in JS Date (0 = Jan)
-    const targetDate = new Date(2026, 0, 1, 0, 0, 0).getTime();
-
-    function update() {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
-
-        if (distance < 0) {
-            countdownContainer.innerHTML = '<div class="new-year-message" style="font-size: 2rem; color: var(--color-accent); font-weight: bold;">🎉 BONNE ANNÉE ! 🎉</div>';
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownContainer.innerHTML = `
-            <div class="countdown-segment">
-                <span class="countdown-number">${days}</span>
-                <span class="countdown-label">Jours</span>
-            </div>
-            <div class="countdown-segment">
-                <span class="countdown-number">${hours}</span>
-                <span class="countdown-label">Heures</span>
-            </div>
-            <div class="countdown-segment">
-                <span class="countdown-number">${minutes}</span>
-                <span class="countdown-label">Min</span>
-            </div>
-            <div class="countdown-segment">
-                <span class="countdown-number">${seconds}</span>
-                <span class="countdown-label">Sec</span>
-            </div>
-        `;
-    }
-
-    setInterval(update, 1000);
-    update(); // Run immediately
-}
 
 /* --- 3D TILT EFFECT LOGIC --- */
 document.addEventListener('DOMContentLoaded', () => {
@@ -456,21 +403,28 @@ document.getElementById('contact-modal')?.addEventListener('click', (e) => {
 /* --- OVERRIDE CONTACT FORM SUBMIT --- */
 // We need to re-attach the event listener to use the modal instead of alert
 // This runs after the DOM is fully loaded + previous script execution
+
+/* --- MAGNETIC BUTTON EFFECT --- */
 document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contact-form');
+    const magneticButtons = document.querySelectorAll('.btn, .btn-outline, .social-btn');
 
-    // Remove old listener (by cloning node) or just add new logic
-    // Simpler here: we'll hijack the existing submit logic by modifying the previous block or just adding this on top?
-    // The previous block uses window.location.href which redirects. 
-    // We will let the "mailto" happen, then show the modal.
+    magneticButtons.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
 
-    if (contactForm) {
-        // We can't easily remove the anonymous function from before. 
-        // But we can add a listener that runs *after*? 
-        // Or better, let's just accept that the previous alert won't show if we replace the file content for that block.
-        // Actually, the best way in this context is to UPDATE the previous block in the file.
-        // But since I am appending here, I will rely on the previous tool call having updated the file?
-        // Wait, I haven't updated the script.js "mailto" block yet. 
-        // I should have done a replace on the mailto block.
-    }
+            // Sensitivity factor (lower is less movement)
+            const sensitivity = 0.3;
+
+            btn.style.transform = `translate(${x * sensitivity}px, ${y * sensitivity}px)`;
+
+            // Should also move inner text/icon slightly more for parallax?
+            // Optional: let's keep it simple first
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
+    });
 });
