@@ -2914,6 +2914,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100%;
   }
 
+  .contact-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
 
 
   .about-text {
