@@ -1776,6 +1776,12 @@ input[type="date"] {
   border-radius: 5px;
   font-family: var(--font-body);
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 52px;
+  /* Ensure similar height to text inputs */
+  color-scheme: dark;
+  /* Force dark calendar popup */
 }
 
 input[type="date"]:focus {
@@ -1783,10 +1789,16 @@ input[type="date"]:focus {
   border-color: var(--color-accent);
 }
 
-/* Date input color scheme */
+/* Date input color scheme & alignment */
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
   cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+input[type="date"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
 }
 
 .form-row {
