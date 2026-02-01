@@ -303,21 +303,41 @@ function openLightbox(element) {
             // It's a video
             if (lightboxImg) lightboxImg.style.display = 'none';
             if (lightboxVideo) {
+                // Completely reset video state
                 lightboxVideo.pause();
+                lightboxVideo.removeAttribute('src');
+                lightboxVideo.load();
+
                 lightboxVideo.style.display = 'block';
                 lightboxVideo.src = videoSrc;
                 lightboxVideo.muted = false;
                 lightboxVideo.volume = 1.0;
-                lightboxVideo.load();
 
-                // Show loader until video is ready
+                // Show loader
                 const loader = document.getElementById('lightbox-loader');
                 if (loader) loader.style.display = 'block';
 
-                lightboxVideo.oncanplay = () => {
+                // Safety timeout for loader (10 seconds)
+                const loaderTimeout = setTimeout(() => {
                     if (loader) loader.style.display = 'none';
-                    lightboxVideo.play().catch(e => console.log("Play failed", e));
+                }, 10000);
+
+                lightboxVideo.onplaying = () => {
+                    clearTimeout(loaderTimeout);
+                    if (loader) loader.style.display = 'none';
                 };
+
+                lightboxVideo.oncanplay = () => {
+                    lightboxVideo.play().catch(e => console.log("Auto-play blocked", e));
+                };
+
+                lightboxVideo.onerror = () => {
+                    clearTimeout(loaderTimeout);
+                    if (loader) loader.style.display = 'none';
+                    console.log("Error loading video");
+                };
+
+                lightboxVideo.load();
             }
         } else if (img) {
             // It's an image
@@ -345,11 +365,14 @@ function closeLightbox() {
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
 
-        // Stop video
+        // Stop and COMPLETELY reset video to avoid bugs or audio playing in background
         if (lightboxVideo) {
             lightboxVideo.pause();
-            lightboxVideo.src = "";
+            lightboxVideo.removeAttribute('src'); // Stop downloading
             lightboxVideo.load();
+            lightboxVideo.oncanplay = null;
+            lightboxVideo.onplaying = null;
+            lightboxVideo.onerror = null;
         }
     }
 }

@@ -214,6 +214,10 @@
     display: none !important;
 }
 
+.gallery-item.video-trigger video {
+    background-color: #111;
+}
+
 /* Lightbox Loader */
 .loader-spinner {
     width: 50px;
