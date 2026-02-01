@@ -282,19 +282,56 @@ window.addEventListener('load', () => {
 // 1. Lightbox Logic (Cursor Logic Removed)
 
 // 2. Lightbox Logic
+// 2. Lightbox Logic
 function openLightbox(element) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxVideo = document.getElementById('lightbox-video');
+
+    // Check if it's a video
+    const videoSrc = element.getAttribute('data-video-src');
     const img = element.querySelector('img');
 
-    if (lightbox && lightboxImg && img) {
+    if (lightbox && (lightboxImg || lightboxVideo)) {
         // Trigger Flash Effect
         const flash = document.createElement('div');
         flash.className = 'flash-effect';
         document.body.appendChild(flash);
         setTimeout(() => flash.remove(), 600);
 
-        lightboxImg.src = img.src;
+        if (videoSrc) {
+            // It's a video
+            if (lightboxImg) lightboxImg.style.display = 'none';
+            if (lightboxVideo) {
+                lightboxVideo.pause();
+                lightboxVideo.style.display = 'block';
+                lightboxVideo.src = videoSrc;
+                lightboxVideo.muted = false;
+                lightboxVideo.volume = 1.0;
+                lightboxVideo.load();
+
+                // Show loader until video is ready
+                const loader = document.getElementById('lightbox-loader');
+                if (loader) loader.style.display = 'block';
+
+                lightboxVideo.oncanplay = () => {
+                    if (loader) loader.style.display = 'none';
+                    lightboxVideo.play().catch(e => console.log("Play failed", e));
+                };
+            }
+        } else if (img) {
+            // It's an image
+            if (lightboxVideo) {
+                lightboxVideo.style.display = 'none';
+                lightboxVideo.pause();
+                lightboxVideo.src = ""; // Clear source
+            }
+            if (lightboxImg) {
+                lightboxImg.style.display = 'block';
+                lightboxImg.src = img.src;
+            }
+        }
+
         lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
@@ -302,9 +339,18 @@ function openLightbox(element) {
 
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
+    const lightboxVideo = document.getElementById('lightbox-video');
+
     if (lightbox) {
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
+
+        // Stop video
+        if (lightboxVideo) {
+            lightboxVideo.pause();
+            lightboxVideo.src = "";
+            lightboxVideo.load();
+        }
     }
 }
 

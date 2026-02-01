@@ -255,8 +255,26 @@
             <p style="color: var(--color-text-muted); margin-top: 10px;">Un aperçu de l'expérience Dj Lr Event's</p>
 
             <div class="gallery-grid" style="margin-top: 3rem;">
-                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/gallery1.jpg"
-                        alt="Ambiance Mariage" loading="lazy"></div>
+                <!-- Video 1 -->
+                <div class="gallery-item video-trigger" onclick="openLightbox(this)"
+                    data-video-src="assets/videos/IMG_1177.MP4">
+                    <video src="assets/videos/IMG_1177.MP4#t=0.5" muted playsinline preload="metadata"
+                        style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="gallery-item video-trigger" onclick="openLightbox(this)"
+                    data-video-src="assets/videos/IMG_1176.mov">
+                    <video src="assets/videos/IMG_1176.mov#t=0.5" muted playsinline preload="metadata"
+                        style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"></video>
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/IMG_1171.JPEG"
+                        alt="Ambiance DJ Lr Event's" loading="lazy"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/IMG_1172.JPEG"
+                        alt="Prestation DJ Lr Event's" loading="lazy"></div>
                 <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/private_party_blue.jpg"
                         alt="Éclairage Événement" loading="lazy"></div>
                 <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/private_party_dancing.jpg"
@@ -268,7 +286,10 @@
     <!-- Lightbox Structure -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-loader" class="loader-spinner" style="display: none;"></div>
+        <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
+        <video class="lightbox-content" id="lightbox-video" controls playsinline onclick="event.stopPropagation()"
+            style="display: none;"></video>
     </div>
 
     <!-- Equipment Section (Simplified) -->

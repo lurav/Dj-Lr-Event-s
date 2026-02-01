@@ -170,3 +170,63 @@
     color: var(--color-accent);
     opacity: 1;
 }
+
+/* Video Overlay Play Button */
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.gallery-item:hover .play-overlay {
+    background: var(--color-accent);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+}
+
+.play-overlay i {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    padding-left: 4px;
+    /* Optical center */
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .play-overlay i {
+    color: #000;
+}
+
+/* Remove magnifying glass (loupe) on video items */
+.gallery-item.video-trigger::after {
+    display: none !important;
+}
+
+/* Lightbox Loader */
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--color-accent);
+    animation: spin 1s ease-in-out infinite;
+    position: absolute;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -121,9 +121,7 @@ img {
   /* Removed block animation for more granular content reveals */
 }
 
-.section.visible {
-  /* No op needed */
-}
+
 
 .text-center {
   text-align: center;
@@ -2424,6 +2422,8 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
   box-shadow: 0 0 60px rgba(212, 175, 55, 0.3);
   position: relative;
   overflow: hidden;
+  object-fit: contain;
+  background-color: #000;
   animation: ultraReveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
@@ -2432,13 +2432,13 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
 @keyframes ultraReveal {
   0% {
     transform: scale(0.9) translateY(20px);
-    filter: blur(20px) brightness(1.5);
+    filter: blur(20px);
     opacity: 0;
   }
 
   100% {
     transform: scale(1) translateY(0);
-    filter: blur(0) brightness(1);
+    filter: blur(0);
     opacity: 1;
   }
 }
