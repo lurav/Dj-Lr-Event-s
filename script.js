@@ -317,12 +317,13 @@ Message: ${document.getElementById('message').value}`;
     const loader = document.getElementById('prestige-loader');
     if (loader) {
         window.addEventListener('load', () => {
+            // Affichage du logo pendant 3 secondes
             setTimeout(() => {
                 loader.classList.add('fade-out');
                 document.body.style.overflow = 'auto';
-            }, 1000);
+            }, 3000);
         });
-        // Fallback safety
+        // Fallback safety (au cas où le load bug)
         setTimeout(() => {
             loader.classList.add('fade-out');
             document.body.style.overflow = 'auto';
