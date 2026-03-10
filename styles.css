@@ -2294,9 +2294,11 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
   height: auto;
   margin-bottom: 20px;
   opacity: 0;
-  transform: scale(0.8) translateZ(0);
+  transform: scale(0.8) translate3d(0, 0, 0);
   will-change: transform, opacity;
   backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  perspective: 1000px;
   animation: loaderLogo 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.15s both;
 }
 
