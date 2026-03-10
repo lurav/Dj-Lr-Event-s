@@ -2296,7 +2296,8 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
   opacity: 0;
   transform: scale(0.8) translateZ(0);
   will-change: transform, opacity;
-  animation: loaderLogo 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  backface-visibility: hidden;
+  animation: loaderLogo 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.15s both;
 }
 
 .loader-line {
@@ -2305,7 +2306,7 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
   background: var(--color-accent);
   margin: 0 auto;
   will-change: width;
-  animation: loaderLine 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.5s;
+  animation: loaderLine 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.5s both;
 }
 
 @keyframes loaderLogo {
