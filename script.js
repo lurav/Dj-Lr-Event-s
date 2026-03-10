@@ -313,21 +313,23 @@ Message: ${document.getElementById('message').value}`;
         });
     }
 
-    // Remove Loader
+    // Remove Loader (Optimisé pour mobile)
     const loader = document.getElementById('prestige-loader');
     if (loader) {
-        window.addEventListener('load', () => {
-            // Affichage du logo pendant 3 secondes
-            setTimeout(() => {
+        const hideLoader = () => {
+            if (!loader.classList.contains('fade-out')) {
                 loader.classList.add('fade-out');
                 document.body.style.overflow = 'auto';
-            }, 3000);
+            }
+        };
+
+        // Cache le logo au bout de 2.5 secondes maximum, même si tout n'est pas téléchargé
+        const forceHideTimeout = setTimeout(hideLoader, 2500);
+
+        // Si la page charge plus vite, on le cache dès que c'est prêt (avec un minimum de 1 seconde)
+        window.addEventListener('load', () => {
+            setTimeout(hideLoader, 1000);
         });
-        // Fallback safety (au cas où le load bug)
-        setTimeout(() => {
-            loader.classList.add('fade-out');
-            document.body.style.overflow = 'auto';
-        }, 5000);
     }
 });
 
