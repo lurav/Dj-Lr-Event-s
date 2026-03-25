@@ -330,4 +330,70 @@
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
     border-color: var(--color-accent);
+}
+
+/* ---- PREMIUM CURTAIN LOADER OVERRIDE ---- */
+#prestige-loader {
+    background: transparent !important; /* Override old bg */
+    pointer-events: none;
+}
+#prestige-loader::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 50vw; height: 100vh;
+    background: #000;
+    z-index: -1;
+    transform-origin: left;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+#prestige-loader::after {
+    content: '';
+    position: fixed;
+    top: 0; right: 0;
+    width: 50vw; height: 100vh;
+    background: #000;
+    z-index: -1;
+    transform-origin: right;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+#prestige-loader.fade-out::before { transform: scaleX(0); }
+#prestige-loader.fade-out::after { transform: scaleX(0); }
+#prestige-loader.fade-out .loader-content { opacity: 0; transition: opacity 0.5s ease; }
+
+/* ---- 3D TILT SERVICE CARDS ---- */
+.service-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.service-card .card-content {
+    transform: translateZ(40px); /* 3D pop effect */
+}
+
+/* ---- INFINITE SCROLL TESTIMONIALS ---- */
+.testimonials-slider {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.testimonials-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: scrollTestimonials 30s linear infinite;
+}
+.testimonials-track:hover {
+    animation-play-state: paused;
+}
+@keyframes scrollTestimonials {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); } 
+}
+.social-card {
+    min-width: 320px;
+    max-width: 350px;
+    flex-shrink: 0;
 }
