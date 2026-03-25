@@ -234,3 +234,100 @@
         transform: rotate(360deg);
     }
 }
+
+/* ---- NOUVEAU PORTFOLIO MASONRY & HOVER EFFECTS ---- */
+.gallery-grid {
+    display: block !important;
+    column-count: 3;
+    column-gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+    .gallery-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid { column-count: 1; }
+}
+
+.gallery-grid .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    height: auto !important;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: #050505;
+}
+
+.gallery-grid .gallery-item img,
+.gallery-grid .gallery-item video {
+    display: block;
+    width: 100%;
+    height: auto !important;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+/* Overlay gradient sombre sur le bas */
+.gallery-grid .gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 50%);
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.gallery-grid .gallery-item:hover::before {
+    opacity: 1;
+}
+
+/* Loupe centrale lumineuse au survol */
+.gallery-grid .gallery-item::after {
+    content: '\f00e';
+    font-family: 'Font Awesome 5 Free', 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    color: var(--color-accent);
+    font-size: 2rem;
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+    pointer-events: none;
+}
+
+.gallery-grid .gallery-item:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Effacer la loupe pour les vidéos (laissent le bouton play) */
+.gallery-grid .gallery-item.video-trigger::after {
+    display: none !important;
+}
+
+/* Zoom doux de l'image au survol */
+.gallery-grid .gallery-item:hover img,
+.gallery-grid .gallery-item:hover video {
+    transform: scale(1.08);
+    filter: brightness(0.85);
+}
+
+/* Surélévation de la carte entière */
+.gallery-grid .gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    border-color: var(--color-accent);
+}
