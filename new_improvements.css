@@ -396,4 +396,56 @@
     min-width: 320px;
     max-width: 350px;
     flex-shrink: 0;
-}
+}
+/* ===== CORRECTIFS AFFICHAGE ===== */
+
+/* 1. Menu mobile : le backdrop-filter du header "scrolled" enfermait le menu
+      (position: fixed) dans la hauteur du header -> menu coupé après scroll */
+@media (max-width: 768px) {
+    header.scrolled {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(2, 6, 23, 0.97);
+    }
+    .nav-links {
+        height: 100dvh; /* évite la barre Safari iOS qui coupe le menu */
+        overflow-y: auto;
+    }
+    /* Le bouton burger restait sous le menu ouvert -> impossible de le fermer */
+    .menu-toggle {
+        position: relative;
+        z-index: 1001;
+    }
+}
+
+/* 2. Cartes services : perspective + translateZ grossissaient le texte (flou/rogné) */
+.service-card {
+    perspective: none;
+}
+
+/* 3. Galerie : le translateY dans une grille en colonnes faisait sauter/clignoter
+      les photos, et les coins arrondis débordaient au zoom (Safari) */
+.gallery-grid .gallery-item {
+    isolation: isolate;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    transform: translateZ(0);
+}
+.gallery-grid .gallery-item:hover {
+    transform: translateZ(0);
+}
+
+/* 4. Slider partenaires : largeur réelle (200px + 48px) != 250px -> saccade en boucle */
+.partners-slider .slide-track {
+    gap: 50px;
+    width: max-content;
+}
+.partners-slider .slide {
+    flex-shrink: 0;
+}
+
+/* 5. Avis clients : cartes trop larges sur petits écrans */
+@media (max-width: 400px) {
+    .social-card {
+        min-width: 270px;
+    }
+}
