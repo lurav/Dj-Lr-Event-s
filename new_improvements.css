@@ -426,8 +426,6 @@
 /* 3. Galerie : le translateY dans une grille en colonnes faisait sauter/clignoter
       les photos, et les coins arrondis débordaient au zoom (Safari) */
 .gallery-grid .gallery-item {
-    isolation: isolate;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
     transform: translateZ(0);
 }
 .gallery-grid .gallery-item:hover {
@@ -449,3 +447,8 @@
         min-width: 270px;
     }
 }
+
+
+/* 6. Forcer le thème sombre (évite que le navigateur éclaircisse le site en mode clair) */
+:root { color-scheme: dark; }
+html, body { background-color: #0c0b0b; }
